@@ -5,9 +5,273 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* border-left: solid 2ch black !important; */
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.side-black{
+  position: fixed;
+  width: 50%;
+  left:0;
+  top:0;
+  background-color: black;
+  z-index: -1;
+  height: 100vh;
+}
+.all-father{
+  background-color: white;
+  margin-left: 2.9ch;
+  border-radius: 30px 0 0 0;
+  overflow: clip;
+}
+.curve-handle-div{
+  position: fixed;
+  top:0;
+  left: 1ch;
+  min-width: 10px;
+  width: 10ch;
+  height: 55px;
+  z-index: 9;
+}
+.app-bar-head{
+  position: sticky;
+  top: 3ch;
+  border-radius: 30px 0 0 0;
+  z-index: 10 !important;
+  box-shadow: 0 10px 8px rgba(100, 100, 100, 0.5);
+  overflow: clip;
+}
+.app-bar-order{
+  background-color: white;
+  display: flex;
+  padding-left: 6ch;
+  padding-right: 6ch;
+  line-height: auto;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.app-bar-order div{
+  display: flex;
+  align-items: center;
+  flex:0.33
+}
+.app-bar-order :nth-child(3){
+  justify-content: center;
+  justify-self: left;
+  /* flex: 0.2; */
+}
+.app-bar-links-order{
+  margin-top:-10px;
+  display: flex;
+  display: flex;
+  justify-content: flex-start;
+  gap:3.5ch;
+  flex-grow: 0;
+  font-family: "ZCOOL KuaiLe";
+  font-size: 20px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+}
+.app-bar-socials-order{
+  justify-content: flex-end;
+  gap:2ch;
+  font-size: 25px;
+}
+.app-bar-top-decoration{
+  height: 3ch;
+  position: sticky;
+  top:0;
+  display: flex;
+}
+.app-bar-top-decoration div{
+  height: 3ch;
+  display: flex;
+  flex: 0.5;
+}
+.bg-black{
+  background-color: black !important;
+}
+.bg-white{
+  background-color: white !important;
+}
+.bg-trans{
+  background-color: #00000000 !important;
+}
+#logo{
+  background-image: url('assets/logo.png');
+  width: 3ch;
+  height: 3ch;
+}
+a{
+  text-decoration: none;
+  color:black;
+}
+.underlined-link{
+  padding-bottom: 13px;
+  border-bottom: 3px solid rgba(0, 0, 0, 0.5);
+  margin-top: 13px !important;
+}
+.hero{
+  /* margin-top: 10ch; */
+  width: 100% !important;
+  /* padding-left: 4ch; */
+}
+.hero-img{
+  width: 100%;
+}
+.small-only{
+  display: none;
+}
+.page-option-for-small{
+  position: fixed;
+  right: 0;
+  left: 0;
+  /* top: 0; */
+  z-index: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 12ch;
+  height: 100vh;
+  /* width: 100%; */
+  background-color: white;
+}
+.inner-links{
+  margin-top: -2ch;
+  display: flex;
+  flex-direction: column;
+  font-family: "ZCOOL KuaiLe";
+  font-size: 4ch;
+  font-weight: bolder;
+  gap:2ch;
+}
+.inner-socials{
+  font-size: 5ch;
+  display: flex;
+  justify-content: center;
+  gap:1ch;
+}
+button{
+  background-color: #00000000;
+  border-color: #00000000;
+}
+.menu-button{
+  /* display: block !important; */
+  align-items: center;
+  font-size: 3ch;
+}
+.bio-text{
+  text-align: left;
+  /* font-family: ITC Avant Garde Gothic Std; */
+  font-weight: 400;
+  font-size: 20px;
+  max-width: 45ch;
+  margin-left: 6ch;
+  font-weight: 500;
+}
+.services-text-branch{
+  /* font-weight: 200; */
+  font-weight: normal;
+  font-size: larger;
+}
+.services-text-main{
+  font-family: "ZCOOL KuaiLe";
+  font-size: 7.5ch;
+}
+.text-divider{
+  display: flex;
+  flex-direction: column;
+  gap:15ch;
+}
+.services-shower-parent{
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap:4ch;
+  margin-left: 2ch;
+  /* accomodate left black thing */
+  margin-right: 2ch;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.last-home-div{
+  margin-bottom: 20ch;
+}
+.services-image{
+  box-shadow: 0 10px 8px rgba(100, 100, 100, 0.5);
+}
+.services-image-small{
+  width: 22vw;
+  min-width: 400px;
+  height: 493px;
+}
+.services-image-large{
+  width: 44vw;
+  min-width: 800px;
+  height: 876px;
+}
+.services-shower-titles{
+  font-family: "ZCOOL KuaiLe";
+  font-style: normal;
+  font-weight: 400;
+  text-align: left;
+  margin-top: 2ch;
+}
+.services-shower-mini-title{
+  font-size: 14px;
+}
+.services-shower-main-title{
+  font-size: 34px;
+  margin-top: 1ch;
+}
+@media screen and (max-width: 780px) {
+  .app-bar-socials-order{
+    display: none !important;
+  }
+  .all-father{
+    margin-left: 0ch;
+  }
+  .app-bar-order{
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    gap:2ch;
+  }
+  .app-bar-order div{
+    flex:0.1;
+  }
+  .app-bar-order{
+    padding-left: 1ch;
+    padding-right: 3.5ch;
+    justify-content: space-between;
+  }
+  
+  .app-bar-order :nth-child(3){
+    justify-content: flex-start;
+  }
+  .small-only{
+    display: flex;
+  }
+  .big-only{
+    display: none !important;
+  }
+  .app-bar-head{
+    top: 0;
+    border-radius: 0;
+  }  
+}
+@media screen and (max-width: 1290px) {
+  .services-image{
+    width: 50vw;
+    height: 55vw;
+    min-height: 493px;
+    min-width: 400px;
+  }
 }
