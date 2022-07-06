@@ -1,27 +1,33 @@
-import React from "react";
-import imageHolder from "../assets/image-holder.png";
-import wireframes from "../assets/wireframes.png";
-import staticDesigns from "../assets/static-designs.png";
-import videoEdits from "../assets/video-edits.png";
-import motionGraphics from "../assets/motion-graphics.png";
+import React, { useRef } from "react";
+import imageHolder from "../assets/Home-Page/image-holder.png";
+import wireframes from "../assets/Home-Page/wireframes.png";
+import staticDesigns from "../assets/Home-Page/static-designs.png";
+import videoEdits from "../assets/Home-Page/video-edits.png";
+import motionGraphics from "../assets/Home-Page/motion-graphics.png";
 import { ServicesShower } from "../components/ServicesShower";
 export const Home = () => {
+    const servicesRef = useRef(null);
+    // const _scrollToServices = () => {
+    //     servicesRef.current.scrollIntoView({ behavior: "smooth" });
+    // };
     return (
-        <div className="hero">
-            <img
-                src={imageHolder}
-                className="hero-img"
-                alt="Hero Image"
-                lazy
-            ></img>
-            <div className="text-divider">
+        <div>
+            <div className="hero">
+                <img
+                    src={imageHolder}
+                    className="hero-img"
+                    alt="Hero"
+                    lazy="true"
+                ></img>
                 <div className="bio-text">
                     <p>
-                        Tomy, is a self taught visual artist,website designer
+                        Tomy, is a self taught visual artist, website designer
                         and video ediitor based out of Addis Ababa.
                     </p>
                 </div>
-                <div className="services-text">
+            </div>
+            <div className="text-divider">
+                <div className="services-text" ref={servicesRef} id="#services">
                     <span className="services-text-main">SERVICES</span>
                     <br />
                     <span className="services-text-branch">
