@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React from "react";
 import imageHolder from "../assets/Home-Page/image-holder.png";
 import wireframes from "../assets/Home-Page/wireframes.png";
 import staticDesigns from "../assets/Home-Page/static-designs.png";
@@ -6,10 +6,6 @@ import videoEdits from "../assets/Home-Page/video-edits.png";
 import motionGraphics from "../assets/Home-Page/motion-graphics.png";
 import { ServicesShower } from "../components/ServicesShower";
 export const Home = () => {
-    const servicesRef = useRef(null);
-    // const _scrollToServices = () => {
-    //     servicesRef.current.scrollIntoView({ behavior: "smooth" });
-    // };
     return (
         <div>
             <div className="hero">
@@ -26,8 +22,8 @@ export const Home = () => {
                     </p>
                 </div>
             </div>
-            <div className="text-divider">
-                <div className="services-text" ref={servicesRef} id="#services">
+            <div className="text-divider" id="services">
+                <div className="services-text">
                     <span className="services-text-main">SERVICES</span>
                     <br />
                     <span className="services-text-branch">

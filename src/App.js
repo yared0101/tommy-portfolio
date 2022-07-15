@@ -1,5 +1,5 @@
 import "./App.css";
-import "@fontsource/zcool-kuaile";
+// import "@fontsource/zcool-kuaile";
 import AppBar from "./components/AppBar";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Home } from "./pages/Home";
