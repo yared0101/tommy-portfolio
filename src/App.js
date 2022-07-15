@@ -3,6 +3,7 @@ import "./App.css";
 import AppBar from "./components/AppBar";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Home } from "./pages/Home";
+import { FindMe } from "./pages/FindMe";
 
 function App() {
     return (
@@ -21,7 +22,7 @@ function App() {
                     <div className="body-2">
                         <Routes>
                             <Route path="/" element={<Home />}></Route>
-                            <Route path="/find-me" element={<Home />}></Route>
+                            <Route path="/find-me" element={<FindMe />}></Route>
                             <Route path="/services" element={<Home />}></Route>
                         </Routes>
                     </div>

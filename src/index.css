@@ -327,6 +327,86 @@ button {
     -o-text-overflow: clip;
     text-overflow: clip;
 }
+
+/* #region find me page*/
+.find-me {
+    font-family: "ITC Avant Garde Gothic Std Book", sans-serif;
+    display: flex;
+    margin-top: 10ch;
+    flex-direction: row;
+    flex-wrap: wrap;
+    text-align: left;
+}
+.inner-socials-find-me {
+    font-size: 20px;
+    justify-content: flex-start;
+}
+.contact-left {
+    display: flex;
+    justify-content: center;
+    width: 40%;
+    min-width: fit-content;
+}
+.all-contact-left-texts {
+    text-align: left;
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: 1.3ch;
+    margin-left: -20%;
+    font-weight: 500;
+}
+.contact-text {
+    font-size: 48px;
+    font-weight: 700;
+    /* line-height: 62px; */
+    /* letter-spacing: 0em; */
+}
+.contact-form {
+    width: 60%;
+    /* min-width: fit-content; */
+}
+.contact-form > * + * {
+    margin-top: 36px;
+}
+.contact-form > div > * + * {
+    margin-top: 10px;
+}
+.input-labels {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+.full-name-inputs {
+    display: flex;
+    gap: 55px;
+}
+.label-and-input {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 8px;
+}
+.submit-button {
+    background-color: black;
+    color: white;
+    font-size: 20px;
+    padding: 10px;
+}
+input,
+textarea {
+    background-color: #d9d9d9;
+    width: 100%;
+    padding: 9px 20px;
+    border: none;
+    font-size: larger;
+}
+button:hover {
+    cursor: pointer;
+}
+/* #endregion */
 @media screen and (max-width: 1290px) {
     .services-image {
         width: 60vw;
@@ -334,6 +414,20 @@ button {
     .services-shower-parent > * + * {
         margin-left: 0ch;
         margin-top: 2ch;
+    }
+    .find-me {
+        flex-direction: column;
+        /* justify-content: center; */
+        align-content: center;
+        flex: 1;
+        gap: 10ch;
+    }
+    .contact-form {
+        justify-content: center;
+        width: 80%;
+    }
+    .all-contact-left-texts {
+        margin-left: 0;
     }
 }
 @media screen and (max-width: 780px) {
@@ -407,5 +501,29 @@ button {
     .services-shower-parent > * + * {
         margin-left: 0ch;
         margin-top: 2ch;
+    }
+    .all-contact-left-texts {
+        margin-left: 3ch;
+        /* margin-bottom: -30ch; */
+        font-size: larger;
+    }
+    .contact-form {
+        width: 80%;
+        margin-left: 3ch;
+        margin-right: 3ch;
+        padding: 1ch;
+        min-width: fit-content;
+        display: flex;
+        flex-direction: column;
+    }
+    .contact-form input,
+    .contact-form textarea {
+        padding-left: 3px;
+        padding-right: 3px;
+        width: 100%;
+    }
+    .full-name-inputs {
+        display: flex;
+        gap: 25px;
     }
 }

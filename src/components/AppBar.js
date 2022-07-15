@@ -4,21 +4,10 @@ import { BsVimeo, BsTwitter } from "react-icons/bs";
 import { AiFillInstagram, AiOutlineClose } from "react-icons/ai";
 import { TbMenu } from "react-icons/tb";
 import { Link } from "react-router-dom";
-import { useNavigate, useLocation } from "react-router";
+import { useLocation } from "react-router";
 export default function AppBar() {
-    const navigate = useNavigate();
     const location = useLocation();
     const [displayOptions, setDisplayOptions] = useState(false);
-    const onServicesClicked = () => {
-        document
-            .getElementById("services")
-            .scrollIntoView({ behavior: "smooth" });
-        navigate("/services");
-    };
-    const onHomeClicked = () => {
-        window.scrollTo({ behavior: "smooth", top: 0 });
-        navigate("/");
-    };
     return (
         <div className="app-bar-head">
             <div
@@ -46,16 +35,12 @@ export default function AppBar() {
                 </div>
                 <div className="page-option-for-small-body">
                     <div className="inner-links">
-                        <Link to="/" onClick={() => setDisplayOptions(false)}>
+                        <Link onClick={() => setDisplayOptions(false)} to="/">
                             HOME
                         </Link>
                         <Link
-                            to="services"
-                            onClick={(e) => {
-                                e.preventDefault();
-                                setDisplayOptions(false);
-                                onServicesClicked();
-                            }}
+                            onClick={() => setDisplayOptions(false)}
+                            to="/services"
                         >
                             SERVICES
                         </Link>
@@ -87,18 +72,10 @@ export default function AppBar() {
                             className={
                                 location.pathname === "/" && "underlined-link"
                             }
-                            onClick={(e) => {
-                                e.preventDefault();
-                                onHomeClicked();
-                            }}
                         >
                             HOME
                         </Link>
                         <Link
-                            onClick={(e) => {
-                                e.preventDefault();
-                                onServicesClicked();
-                            }}
                             to="/services"
                             className={
                                 location.pathname === "/services" &&

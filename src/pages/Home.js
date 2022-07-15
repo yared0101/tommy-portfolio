@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useLocation } from "react-router";
 import imageHolder from "../assets/Home-Page/image-holder.png";
 import wireframes from "../assets/Home-Page/wireframes.png";
 import staticDesigns from "../assets/Home-Page/static-designs.png";
@@ -6,6 +7,18 @@ import videoEdits from "../assets/Home-Page/video-edits.png";
 import motionGraphics from "../assets/Home-Page/motion-graphics.png";
 import { ServicesShower } from "../components/ServicesShower";
 export const Home = () => {
+    const location = useLocation();
+
+    useEffect(() => {
+        console.log(location.pathname);
+        if (location.pathname === "/services") {
+            document
+                ?.getElementById("services")
+                ?.scrollIntoView({ behavior: "smooth" });
+        } else {
+            window.scrollTo({ behavior: "smooth", top: 0 });
+        }
+    }, [location.pathname]);
     return (
         <div>
             <div className="hero">
@@ -18,7 +31,7 @@ export const Home = () => {
                 <div className="bio-text">
                     <p>
                         Tomy, is a self taught visual artist, website designer
-                        and video ediitor based out of Addis Ababa.
+                        and video editor based out of Addis Ababa.
                     </p>
                 </div>
             </div>
