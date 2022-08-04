@@ -4,9 +4,10 @@ import { baseUrl, getWireFrameImagesUrl } from "../constants";
 import { LoadingDiv } from "../components/LoadingDiv";
 export const WireFrame = () => {
     const [images, setImages] = useState([]);
-    const [height, setHeight] = useState(460);
+    const [height, setHeight] = useState(828);
     const imageRef = useRef();
     useEffect(() => {
+        window.scrollTo({ behavior: "smooth", top: 0 });
         axios
             .get(baseUrl + getWireFrameImagesUrl)
             .then((data) => {
@@ -24,9 +25,18 @@ export const WireFrame = () => {
             setHeight(((imageRef.current.clientWidth || 677) * 828) / 677);
         }
     }, [imageRef, images]);
-    const style = { maxWidth: "677px", height: `${height}px`, width: "100%" };
+    const style = {
+        maxWidth: "677px",
+        height: `${height}px`,
+        width: "100%",
+        minWidth: "300px",
+    };
     const imagesDivs = images.map((elem, index) => (
-        <div key={`${index}`} className="m-1 small-mr-3 small-ml-3">
+        <div
+            key={`${index}`}
+            className="m-1 small-mr-3 small-ml-3 box-hover"
+            style={style}
+        >
             <img
                 ref={imageRef}
                 style={style}

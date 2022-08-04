@@ -7,6 +7,7 @@ export const Static = () => {
     const [height, setHeight] = useState(460);
     const imageRef = useRef();
     useEffect(() => {
+        window.scrollTo({ behavior: "smooth", top: 0 });
         axios
             .get(baseUrl + getStaticImagesUrl)
             .then((data) => {
@@ -24,9 +25,18 @@ export const Static = () => {
             setHeight(((imageRef.current.clientWidth || 430) * 460) / 430);
         }
     }, [imageRef, images]);
-    const style = { maxWidth: "430px", height: `${height}px`, width: "100%" };
+    const style = {
+        maxWidth: "430px",
+        height: `${height}px`,
+        width: "100%",
+        minWidth: "150px",
+    };
     const imagesDivs = images.map((elem, index) => (
-        <div key={`${index}`} className="m-1 small-mr-3 small-ml-3">
+        <div
+            key={`${index}`}
+            className="m-1 small-mr-3 small-ml-3 box-hover"
+            style={style}
+        >
             <img
                 ref={imageRef}
                 style={style}
