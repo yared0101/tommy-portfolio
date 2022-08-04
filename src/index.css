@@ -427,7 +427,7 @@ button:hover {
     }
 }
 .box-hover:hover {
-    box-shadow: 0 0 20px rgba(33, 33, 33, 0.2);
+    box-shadow: 0 0 20px #474343;
     transition: 250ms ease-in;
 }
 /* #endregion */
