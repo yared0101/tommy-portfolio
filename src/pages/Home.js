@@ -50,6 +50,7 @@ export const Home = () => {
                         alt="Static Designs"
                         title="STATIC DESIGNS"
                         miniTitle="ADS"
+                        linkTo="/services/static"
                     />
                     <ServicesShower
                         img={wireframes}
@@ -57,6 +58,7 @@ export const Home = () => {
                         alt="Wireframes"
                         title="WIREFRAMES IN FIGMA"
                         miniTitle="WEB DESIGNS"
+                        linkTo="/services/wireframes"
                     />
                 </div>
                 <div className="services-shower-parent last-home-div">

@@ -70,7 +70,9 @@ export default function AppBar() {
                         <Link
                             to="/"
                             className={
-                                location.pathname === "/" && "underlined-link"
+                                (location.pathname === "/" &&
+                                    "underlined-link") ||
+                                ""
                             }
                         >
                             HOME
@@ -78,8 +80,9 @@ export default function AppBar() {
                         <Link
                             to="/services"
                             className={
-                                location.pathname === "/services" &&
-                                "underlined-link"
+                                (location.pathname.match("/services") &&
+                                    "underlined-link") ||
+                                ""
                             }
                         >
                             SERVICES
@@ -87,8 +90,9 @@ export default function AppBar() {
                         <Link
                             to="/find-me"
                             className={
-                                location.pathname === "/find-me" &&
-                                "underlined-link"
+                                (location.pathname === "/find-me" &&
+                                    "underlined-link") ||
+                                ""
                             }
                         >
                             FIND ME

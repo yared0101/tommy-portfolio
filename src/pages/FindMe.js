@@ -2,18 +2,24 @@ import { useState, useEffect } from "react";
 import { MdDoneOutline } from "react-icons/md";
 import { BsVimeo, BsTwitter } from "react-icons/bs";
 import { AiFillInstagram } from "react-icons/ai";
+import { baseUrl, sendMessageUrl } from "../constants";
+import axios from "axios";
 export const FindMe = () => {
     const [sent, setSent] = useState(false);
     /**
      *
      * @param {React.FormEvent<HTMLFormElement>} e
      */
-    const submitForm = (e) => {
+    const submitForm = async (e) => {
         e.preventDefault();
         const formData = new FormData(e.currentTarget);
         const values = Object.fromEntries(formData);
-        console.log(values);
-        setSent(true);
+        try {
+            await axios.post(baseUrl + sendMessageUrl, values);
+            setSent(true);
+        } catch (e) {
+            console.log(e);
+        }
     };
     useEffect(() => {
         window.scrollTo({ behavior: "smooth", top: 0 });

@@ -1,6 +1,14 @@
 import { useRef, useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
-export const ServicesShower = ({ img, size, alt, title, miniTitle }) => {
+export const ServicesShower = ({
+    img,
+    size,
+    alt,
+    title,
+    miniTitle,
+    linkTo = "/",
+}) => {
     const imgWidth = useRef();
     const [width, setWidth] = useState(0);
     useEffect(() => {
@@ -20,7 +28,9 @@ export const ServicesShower = ({ img, size, alt, title, miniTitle }) => {
             />
             <div className="services-shower-titles" style={{ width }}>
                 <div className="services-shower-mini-title">{miniTitle}</div>
-                <div className="services-shower-main-title">{title}</div>
+                <div className="services-shower-main-title">
+                    <Link to={linkTo}>{title}</Link>
+                </div>
             </div>
         </div>
     );

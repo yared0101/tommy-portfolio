@@ -406,6 +406,26 @@ textarea {
 button:hover {
     cursor: pointer;
 }
+.loading-div {
+    background-image: linear-gradient(
+        to bottom right,
+        white,
+        rgba(120, 120, 120, 0.7)
+    );
+    background-size: 400% 400%;
+    animation: gradient 3s forwards infinite;
+}
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
 /* #endregion */
 @media screen and (max-width: 1290px) {
     .services-image {
@@ -428,6 +448,9 @@ button:hover {
     }
     .all-contact-left-texts {
         margin-left: 0;
+    }
+    .app-bar-links-order {
+        font-size: 18px;
     }
 }
 @media screen and (max-width: 780px) {
