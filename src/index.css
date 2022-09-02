@@ -430,6 +430,13 @@ button:hover {
     box-shadow: 0 0 20px rgba(100, 100, 100, 0.2);
     transition: 250ms ease-in;
 }
+.operation-buttons{
+    display:flex;
+    justify-content: center;
+    flex-direction: column;
+    font-size: xx-large;
+    /* height: 100%; */
+}
 /* #endregion */
 @media screen and (max-width: 1290px) {
     .services-image {
