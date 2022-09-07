@@ -72,7 +72,7 @@ export default function AppBar() {
                             className={
                                 (location.pathname === "/" &&
                                     "underlined-link") ||
-                                ""
+                                "underlined-link-white"
                             }
                         >
                             HOME
@@ -82,7 +82,7 @@ export default function AppBar() {
                             className={
                                 (location.pathname.match("/services") &&
                                     "underlined-link") ||
-                                ""
+                                "underlined-link-white"
                             }
                         >
                             SERVICES
@@ -92,7 +92,7 @@ export default function AppBar() {
                             className={
                                 (location.pathname === "/find-me" &&
                                     "underlined-link") ||
-                                ""
+                                "underlined-link-white"
                             }
                         >
                             FIND ME

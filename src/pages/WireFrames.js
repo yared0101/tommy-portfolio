@@ -43,7 +43,7 @@ export const WireFrame = () => {
                 alt={`wireframe_${index}`}
                 src={elem}
                 className="wireframe-img"
-                loading="lazy"
+                // loading="lazy"
             />
         </div>
     ));

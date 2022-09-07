@@ -13,6 +13,7 @@ import {
     AiFillFileAdd,
     AiFillDelete,
 } from "react-icons/ai";
+import { MediaDisplayer } from "../components/MediaDisplayer";
 export const Static = () => {
     const [images, setImages] = useState([]);
     const [height, setHeight] = useState(460);
@@ -23,6 +24,15 @@ export const Static = () => {
     const [loading, setLoading] = useState(false);
     const [addImageAt, setAddImageAt] = useState(0);
     const [refresh, setRefresh] = useState(false);
+    const [displayMedia, setDisplayMedia] = useState(-1);
+    const closeDisplayImage = (lastIndex) => {
+        // console.log(lastIndex, document.getElementsByTagName('img'));
+        document.getElementsByTagName("img")[lastIndex]?.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+        });
+        setDisplayMedia(-1);
+    };
     useEffect(() => {
         window.scrollTo({ behavior: "smooth", top: 0 });
         axios
@@ -122,7 +132,8 @@ export const Static = () => {
                 style={style}
                 alt={`static_${index}`}
                 src={elem}
-                loading="lazy"
+                onClick={() => setDisplayMedia(index)}
+                // loading="lazy"
             />
         </div>
     ));
@@ -148,6 +159,16 @@ export const Static = () => {
                     />
                     <EditButton onClick={() => setEditMode(!editMode)} />
                 </>
+            )}
+            {displayMedia > -1 ? (
+                <MediaDisplayer
+                    list={images}
+                    currentIndex={displayMedia}
+                    setClose={(lastIndex) => closeDisplayImage(lastIndex)}
+                    type="IMAGE"
+                />
+            ) : (
+                <></>
             )}
             <div
                 className="static-images d-flex-wrap flex-center mt-5"

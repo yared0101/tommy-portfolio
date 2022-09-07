@@ -91,7 +91,7 @@ export const FindMe = () => {
                                 <span className="input-labels">Message *</span>
                             </div>
                             <div>
-                                <textarea name="message" required />
+                                <textarea name="message" rows={6} required />
                             </div>
                         </div>
                         <div>

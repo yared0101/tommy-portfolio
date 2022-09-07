@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useLocation } from "react-router";
 import imageHolder from "../assets/Home-Page/image-holder.png";
 import wireframes from "../assets/Home-Page/wireframes.png";
@@ -6,11 +6,33 @@ import staticDesigns from "../assets/Home-Page/static-designs.png";
 import videoEdits from "../assets/Home-Page/video-edits.png";
 import motionGraphics from "../assets/Home-Page/motion-graphics.png";
 import { ServicesShower } from "../components/ServicesShower";
+import { Loading } from "../components/Loading";
 export const Home = () => {
     const location = useLocation();
+    const [loading, setLoading] = useState(true);
+    const setLoadingFalse = () => {
+        setLoading(false);
+    };
+    const heroref = useRef();
 
     useEffect(() => {
-        console.log(location.pathname);
+        const heroImage = document.getElementById("mainImage");
+
+        heroImage.onload = () => {
+            console.log("Image Loaded");
+            const interval = setInterval(() => {
+                console.log(heroImage.naturalHeight);
+                if (
+                    heroImage.naturalWidth > 0 &&
+                    heroImage.naturalHeight > 224
+                ) {
+                    clearInterval(interval);
+                    console.log("Image rendered");
+                    setLoadingFalse();
+                }
+            }, 20);
+        };
+
         if (location.pathname === "/services") {
             document
                 ?.getElementById("services")
@@ -18,15 +40,19 @@ export const Home = () => {
         } else {
             window.scrollTo({ behavior: "smooth", top: 0 });
         }
+        // return setLoadingFalse;
     }, [location.pathname]);
     return (
-        <div>
+        <div style={loading ? { overflow: "hidden" } : {}}>
+            {loading ? <Loading /> : <></>}
             <div className="hero">
                 <img
                     src={imageHolder}
                     className="hero-img"
                     alt="Hero"
                     lazy="true"
+                    id="mainImage"
+                    ref={heroref}
                 ></img>
                 <div className="bio-text">
                     <p>
