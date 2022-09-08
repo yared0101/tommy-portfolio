@@ -10,6 +10,7 @@ export const MediaDisplayer = ({ type, list, currentIndex, setClose }) => {
     const [index, setIndex] = useState(currentIndex);
     const next = () => setIndex((i) => i + 1);
     const prev = () => setIndex((i) => i - 1);
+    // eslint-disable-next-line
     const close = () => setClose(index);
     useEffect(() => {
         /**
@@ -17,15 +18,11 @@ export const MediaDisplayer = ({ type, list, currentIndex, setClose }) => {
          * @param {KeyboardEvent} e
          */
         const handleKeyPress = (e) => {
-            console.log(index);
             if (e.key === "Escape") {
-                console.log("escape");
                 close();
             } else if (e.key === "ArrowLeft" && index > 0) {
-                console.log("left");
                 prev();
             } else if (e.key === "ArrowRight" && index < list.length - 1) {
-                console.log("right");
                 next();
             }
         };
@@ -45,7 +42,11 @@ export const MediaDisplayer = ({ type, list, currentIndex, setClose }) => {
 
             {type === "IMAGE" ? (
                 <>
-                    <img src={list[index]} alt={`file${index}`} />
+                    <img
+                        src={list[index]}
+                        alt={`file${index}`}
+                        style={{ maxWidth: "70%" }}
+                    />
                 </>
             ) : (
                 <>video {index}</>

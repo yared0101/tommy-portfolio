@@ -27,7 +27,9 @@ code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
         monospace;
 }
-
+.half-opacity{
+    opacity: 0.5;
+}
 .side-black {
     position: fixed;
     width: 50%;
@@ -57,8 +59,8 @@ code {
     top: 3ch;
     border-radius: 30px 0 0 0;
     z-index: 10 !important;
-    -webkit-box-shadow: 0 10px 8px rgba(100, 100, 100, 0.5);
-    box-shadow: 0 10px 8px rgba(100, 100, 100, 0.5);
+    -webkit-box-shadow: 0 4.5px 3px rgba(100, 100, 100, 0.5);
+    box-shadow: 0 4.5px 3px rgba(100, 100, 100, 0.5);
     overflow: clip;
 }
 .app-bar-order {
@@ -75,6 +77,8 @@ code {
     flex-wrap: wrap;
     -ms-flex-pack: distribute;
     justify-content: space-around;
+    padding-top: 7px;
+    padding-bottom: 7px;
 }
 .app-bar-order div {
     display: -webkit-flex;
@@ -111,7 +115,7 @@ code {
     letter-spacing: normal;
 }
 .app-bar-links-order > * + * {
-    margin-left: 3.5ch;
+    margin-left: 5.5ch;
 }
 .app-bar-socials-order {
     -webkit-box-pack: end;
@@ -363,9 +367,10 @@ button {
     gap: 1.3ch;
     margin-left: -20%;
     font-weight: 500;
+    font-size: 20px;
 }
 .contact-text {
-    font-size: 48px;
+    font-size: 80px;
     font-weight: 700;
     /* line-height: 62px; */
     /* letter-spacing: 0em; */

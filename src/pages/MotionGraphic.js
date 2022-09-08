@@ -1,13 +1,12 @@
 import { useState, useEffect, useRef } from "react";
 import axios from "axios";
-import {} from "../constants";
-import { LoadingDiv } from "../components/LoadingDiv";
 import {
     addImagesUrl,
     baseUrl,
-    getWireFrameImagesUrl,
     deleteImageUrl,
+    getStaticImagesUrl,
 } from "../constants";
+import { LoadingDiv } from "../components/LoadingDiv";
 import { EditButton } from "../components/EditButton";
 import {
     AiOutlineLoading3Quarters,
@@ -15,10 +14,9 @@ import {
     AiFillDelete,
 } from "react-icons/ai";
 import { MediaDisplayer } from "../components/MediaDisplayer";
-
-export const WireFrame = () => {
+export const MotionGraphic = () => {
     const [images, setImages] = useState([]);
-    const [height, setHeight] = useState(828);
+    const [height, setHeight] = useState(460);
     const imageRef = useRef();
     const addImageRef = useRef();
     const loggedIn = localStorage.getItem("accessToken");
@@ -29,18 +27,16 @@ export const WireFrame = () => {
     const [displayMedia, setDisplayMedia] = useState(-1);
     const closeDisplayImage = (lastIndex) => {
         // console.log(lastIndex, document.getElementsByTagName('img'));
-        document
-            .getElementsByClassName("wireframe-img")
-            [lastIndex]?.scrollIntoView({
-                behavior: "smooth",
-                block: "start",
-            });
+        document.getElementsByTagName("img")[lastIndex]?.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+        });
         setDisplayMedia(-1);
     };
     useEffect(() => {
         window.scrollTo({ behavior: "smooth", top: 0 });
         axios
-            .get(baseUrl + getWireFrameImagesUrl)
+            .get(baseUrl + getStaticImagesUrl)
             .then((data) => {
                 const urls = data?.data?.urls;
                 if (!urls) {
@@ -61,7 +57,7 @@ export const WireFrame = () => {
         filesArray.forEach((f) => {
             data.append("file[]", f);
         });
-        data.append("type", "WIREFRAME");
+        data.append("type", "STATIC");
         data.append("index", addImageAt);
         try {
             await axios.post(baseUrl + addImagesUrl, data, {
@@ -82,7 +78,7 @@ export const WireFrame = () => {
         try {
             await axios.delete(baseUrl + deleteImageUrl, {
                 data: {
-                    type: "WIREFRAME",
+                    type: "STATIC",
                     removedIndexes: [index],
                 },
                 headers: {
@@ -98,16 +94,16 @@ export const WireFrame = () => {
     };
     useEffect(() => {
         if (images.length) {
-            console.log(imageRef.current.clientWidth);
-            setHeight(((imageRef.current.clientWidth || 677) * 828) / 677);
+            // console.log(imageRef.current.clientWidth);
+            setHeight(((imageRef?.current?.clientWidth || 430) * 460) / 430);
         }
     }, [imageRef, images]);
     const style = {
-        maxWidth: "677px",
+        maxWidth: "430px",
+        display: "flex",
         height: `${height}px`,
         width: "100%",
-        display: "flex",
-        minWidth: "300px",
+        minWidth: "150px",
     };
     const imagesDivs = images.map((elem, index) => (
         <div
@@ -134,9 +130,8 @@ export const WireFrame = () => {
             <img
                 ref={imageRef}
                 style={style}
-                alt={`wireframe_${index}`}
+                alt={`static_${index}`}
                 src={elem}
-                className="wireframe-img"
                 onClick={() => setDisplayMedia(index)}
                 // loading="lazy"
             />
@@ -147,9 +142,21 @@ export const WireFrame = () => {
         <LoadingDiv key={2} style={style} />,
         <LoadingDiv key={3} style={style} />,
         <LoadingDiv key={4} style={style} />,
+        <LoadingDiv key={5} style={style} />,
+        <LoadingDiv key={6} style={style} />,
     ];
     return (
         <div>
+            {/* <iframe
+                src="https://player.vimeo.com/video/746610211?h=154a835fae&loop=1"
+                width="640"
+                height="360"
+                frameborder="0"
+                allow="autoplay; fullscreen; picture-in-picture"
+                allowfullscreen
+                onClick={() => console.log("stufg")}
+            ></iframe> */}
+
             {Boolean(loggedIn) && (
                 <>
                     <input
@@ -174,7 +181,7 @@ export const WireFrame = () => {
                 <></>
             )}
             <div
-                className="wireframe-images d-flex-wrap flex-center mt-5"
+                className="static-images d-flex-wrap flex-center mt-5"
                 style={{ minHeight: "100vh" }}
             >
                 {imagesDivs.length > 0 ? imagesDivs : loadingDivs}

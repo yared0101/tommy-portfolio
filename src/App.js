@@ -7,6 +7,7 @@ import { FindMe } from "./pages/FindMe";
 import { Static } from "./pages/Static";
 import { WireFrame } from "./pages/WireFrames";
 import { Login } from "./pages/Login";
+import { MotionGraphic } from "./pages/MotionGraphic";
 
 function App() {
     return (
@@ -35,6 +36,10 @@ function App() {
                             <Route
                                 path="/services/wireframes"
                                 element={<WireFrame />}
+                            ></Route>
+                            <Route
+                                path="/services/motion-graphics"
+                                element={<MotionGraphic />}
                             ></Route>
                             <Route path="/*" element={<Home />}></Route>
                         </Routes>

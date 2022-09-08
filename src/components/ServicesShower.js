@@ -11,8 +11,9 @@ export const ServicesShower = ({
 }) => {
     const imgWidth = useRef();
     const [width, setWidth] = useState(0);
+    const [hovering, setHovering] = useState(false);
     useEffect(() => {
-        setWidth(imgWidth.current.clientWidth);
+        setWidth(imgWidth?.current?.clientWidth);
     }, [imgWidth]);
     return (
         <div className="services-shower">
@@ -29,7 +30,14 @@ export const ServicesShower = ({
             <div className="services-shower-titles" style={{ width }}>
                 <div className="services-shower-mini-title">{miniTitle}</div>
                 <div className="services-shower-main-title">
-                    <Link to={linkTo}>{title}</Link>
+                    <Link
+                        to={linkTo}
+                        className={hovering ? "half-opacity" : ""}
+                        onMouseOver={() => setHovering(true)}
+                        onMouseOut={() => setHovering(false)}
+                    >
+                        {hovering ? "LET ME BROWSE" : title}
+                    </Link>
                 </div>
             </div>
         </div>

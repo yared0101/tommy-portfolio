@@ -94,6 +94,7 @@ export const Home = () => {
                         alt="Motion Graphics"
                         title="MOTION GRAPHICS"
                         miniTitle="UGC"
+                        // linkTo="/services/motion-graphics"
                     />
                     <ServicesShower
                         img={videoEdits}

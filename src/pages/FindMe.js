@@ -30,9 +30,7 @@ export const FindMe = () => {
                 <div className="all-contact-left-texts">
                     <div className="contact-text">Contact</div>
                     <div>
-                        <a href="mailto:Tommy@bonafacio.cc">
-                            Tommy@bonafacio.cc
-                        </a>
+                        <a href="mailto:Tommy@bonafacio.cc">contact@tomyd.cc</a>
                     </div>
                     <div>+251-932-659-803</div>
                     <div>Addis Ababa, Bole Road</div>
