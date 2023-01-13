@@ -1,5 +1,5 @@
 import { useState } from "react";
-import logo from "../assets/logo.png";
+import logo from "../assets/logo-70.png";
 import { BsVimeo, BsTwitter } from "react-icons/bs";
 import { AiFillInstagram, AiOutlineClose } from "react-icons/ai";
 import { TbMenu } from "react-icons/tb";
@@ -28,7 +28,11 @@ export default function AppBar() {
                                 )}
                             </button>
                             <div>
-                                <img alt="logo" src={logo} />
+                                <img
+                                    style={{ height: "65px" }}
+                                    alt="logo"
+                                    src={logo}
+                                />
                             </div>
                         </div>
                     </div>
@@ -105,7 +109,7 @@ export default function AppBar() {
                         {displayOptions ? <AiOutlineClose /> : <TbMenu />}
                     </button>
                     <div>
-                        <img alt="logo" src={logo} />
+                        <img alt="logo" src={logo} style={{ height: "65px" }} />
                     </div>
                     <div className="app-bar-socials-order">
                         <a href="https://twitter.com">

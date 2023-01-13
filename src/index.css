@@ -10,6 +10,10 @@
     src: url(assets/fonts/ZCOOLKuaiLe-Regular.ttf);
 }
 @font-face {
+    font-family: "Montserrat";
+    src: url(assets/fonts/Montserrat-VariableFont_wght.ttf);
+}
+@font-face {
     font-family: "ITC Avant Garde Gothic Std Book";
     src: url(assets/fonts/itc.ttf);
 }
@@ -27,7 +31,7 @@ code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
         monospace;
 }
-.half-opacity{
+.half-opacity {
     opacity: 0.5;
 }
 .side-black {
@@ -106,7 +110,7 @@ code {
     -webkit-box-flex: 0;
     -ms-flex-positive: 0;
     flex-grow: 0;
-    font-family: "ZCOOL KuaiLe";
+    font-family: "Montserrat";
     font-size: 18px;
     font-weight: normal;
     font-stretch: normal;
@@ -225,7 +229,7 @@ a {
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
     flex-direction: column;
-    font-family: "ZCOOL KuaiLe";
+    font-family: "Montserrat";
     font-size: 4ch;
     font-weight: bolder;
     /* gap: 2ch; */
@@ -271,7 +275,7 @@ button {
     font-weight: normal;
 }
 .services-text-main {
-    font-family: "ZCOOL KuaiLe";
+    font-family: "Montserrat";
     font-size: 7.5ch;
 }
 .text-divider {
@@ -324,7 +328,7 @@ button {
     /* height: 876px; */
 }
 .services-shower-titles {
-    font-family: "ZCOOL KuaiLe";
+    font-family: "Montserrat";
     font-style: normal;
     font-weight: 400;
     text-align: left;
@@ -428,26 +432,38 @@ button:hover {
     background-size: 400% 400%;
     animation: gradient 3s forwards infinite;
 }
-.cls-1{
-    fill:#1a1a1a;;
-    animation: hideshow 7s  ease infinite;
+.cls-1 {
+    fill: #1a1a1a;
+    animation: hideshow 7s ease infinite;
 }
 @keyframes hideshow {
-    25% { opacity: 0.25; }
-    50% { opacity: 1; }
-    75% { opacity: 0.25; }
+    25% {
+        opacity: 0.25;
+    }
+    50% {
+        opacity: 1;
+    }
+    75% {
+        opacity: 0.25;
+    }
 }
 @keyframes hideshowinverted {
-    25% { fill: black; }
-    50% { fill: #f2f2f2 }
-    75% { fill: black }
+    25% {
+        fill: black;
+    }
+    50% {
+        fill: #f2f2f2;
+    }
+    75% {
+        fill: black;
+    }
 }
-.cls-2{
+.cls-2 {
     /* fill:; */
-    fill:#f2f2f2;
-    animation: hideshowinverted 7s  ease infinite;
+    fill: #f2f2f2;
+    animation: hideshowinverted 7s ease infinite;
 }
-.loading-svg{
+.loading-svg {
     width: 200px;
 }
 .loading-page {
@@ -458,42 +474,41 @@ button:hover {
     );
     position: fixed;
     z-index: 100;
-    top:0;
-    left:0;
-    width: 100%; 
-    height: 100vh; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
     background-size: 400% 400%;
     animation: gradient 3s forwards infinite;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.media-displayer{
+.media-displayer {
     position: fixed;
     z-index: 100;
-    top:0;
-    left:0;
-    width: 100%; 
-    height: 100vh; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
     /* background-color: rgba(0, 0, 0, 0.2); */
-    background-color: rgb(230,230,230);
+    background-color: rgb(230, 230, 230);
     display: flex;
     justify-content: space-around;
     /* padding-left:5ch ; */
     /* padding-right:5ch ; */
     align-items: center;
 }
-.media-displayer .image-close{
+.media-displayer .image-close {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     height: inherit;
-
 }
-.media-displayer button{
+.media-displayer button {
     width: 50px;
     height: 50px;
-    color:white;
+    color: white;
     background-color: grey;
 }
 @keyframes gradient {
@@ -511,12 +526,12 @@ button:hover {
     box-shadow: 0 0 20px rgba(100, 100, 100, 0.2);
     transition: 250ms ease-in;
 }
-.operation-buttons{
-    display:flex;
+.operation-buttons {
+    display: flex;
     justify-content: center;
     flex-direction: column;
     font-size: xx-large;
-    
+
     /* height: 100%; */
 }
 /* #endregion */

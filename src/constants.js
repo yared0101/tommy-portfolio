@@ -1,4 +1,4 @@
-export const baseUrl = "https://tommy-backend.herokuapp.com";
+export const baseUrl = "https://back.tomyd.cc";
 export const loginUrl = "/user/login";
 export const addImagesUrl = "/images/add-to-list";
 export const deleteImageUrl = "/images/remove-from-list";

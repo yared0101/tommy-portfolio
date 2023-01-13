@@ -161,6 +161,17 @@ export const WireFrame = () => {
                         ref={addImageRef}
                     />
                     <EditButton onClick={() => setEditMode(!editMode)} />
+                    <button
+                        type="submit"
+                        className={"submit-button"}
+                        onClick={() => {
+                            localStorage.removeItem("accessToken");
+                            window.location.reload();
+                        }}
+                        style={{ marginLeft: "10px" }}
+                    >
+                        Logout
+                    </button>
                 </>
             )}
             {displayMedia > -1 ? (
