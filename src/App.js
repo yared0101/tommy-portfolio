@@ -13,15 +13,15 @@ function App() {
     return (
         <BrowserRouter>
             <div className="App">
-                <div className="side-black big-only"></div>
+                {/* <div className="side-black big-only"></div> */}
                 <div className="all-father">
-                    <div className="app-bar-top-decoration big-only">
+                    {/* <div className="app-bar-top-decoration big-only">
                         <div className="bg-black"></div>
                         <div className="bg-white"></div>
-                    </div>
-                    <div className="curve-handle-div bg-black big-only">
+                    </div> */}
+                    {/* <div className="curve-handle-div bg-black big-only">
                         hey
-                    </div>
+                    </div> */}
                     <AppBar />
                     <div className="body-2">
                         <Routes>

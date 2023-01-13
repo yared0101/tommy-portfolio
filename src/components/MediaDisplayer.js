@@ -45,6 +45,7 @@ export const MediaDisplayer = ({ type, list, currentIndex, setClose }) => {
                     <img
                         src={list[index]}
                         alt={`file${index}`}
+                        onClick={() => close()}
                         style={{ maxWidth: "70%" }}
                     />
                 </>

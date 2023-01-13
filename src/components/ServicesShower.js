@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
 export const ServicesShower = ({
@@ -9,16 +9,10 @@ export const ServicesShower = ({
     miniTitle,
     linkTo = "/",
 }) => {
-    const imgWidth = useRef();
-    const [width, setWidth] = useState(0);
     const [hovering, setHovering] = useState(false);
-    useEffect(() => {
-        setWidth(imgWidth?.current?.clientWidth);
-    }, [imgWidth]);
     return (
-        <div className="services-shower">
+        <div className="services-shower" style={{ width: "fit-content" }}>
             <img
-                ref={imgWidth}
                 alt={alt}
                 src={img}
                 className={
@@ -27,7 +21,7 @@ export const ServicesShower = ({
                         : "services-image services-image-small"
                 }
             />
-            <div className="services-shower-titles" style={{ width }}>
+            <div className="services-shower-titles">
                 <div className="services-shower-mini-title">{miniTitle}</div>
                 <div className="services-shower-main-title">
                     <Link
