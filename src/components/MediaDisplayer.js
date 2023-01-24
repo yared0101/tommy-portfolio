@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { IoIosArrowBack, IoIosArrowForward, IoIosClose } from "react-icons/io";
+import ThemeContext from "../context/ThemeContext";
 
 /**
  *
@@ -10,6 +11,7 @@ export const MediaDisplayer = ({ type, list, currentIndex, setClose }) => {
     const [index, setIndex] = useState(currentIndex);
     const next = () => setIndex((i) => i + 1);
     const prev = () => setIndex((i) => i - 1);
+    const { theme } = useContext(ThemeContext);
     // eslint-disable-next-line
     const close = () => setClose(index);
     useEffect(() => {
@@ -30,7 +32,11 @@ export const MediaDisplayer = ({ type, list, currentIndex, setClose }) => {
         return () => window.removeEventListener("keydown", handleKeyPress);
     }, [index, list.length, close]);
     return (
-        <div className="media-displayer">
+        <div
+            className={`media-displayer ${
+                theme === "light" ? "theme-light" : "theme-dark"
+            }`}
+        >
             <button
                 className="prev-button"
                 onClick={prev}
@@ -46,7 +52,7 @@ export const MediaDisplayer = ({ type, list, currentIndex, setClose }) => {
                         src={list[index]}
                         alt={`file${index}`}
                         onClick={() => close()}
-                        style={{ maxWidth: "70%" }}
+                        style={{ maxWidth: "70%", maxHeight: "95%" }}
                     />
                 </>
             ) : (

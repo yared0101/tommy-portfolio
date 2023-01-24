@@ -6,16 +6,8 @@
 */
 
 @font-face {
-    font-family: "ZCOOL KuaiLe";
-    src: url(assets/fonts/ZCOOLKuaiLe-Regular.ttf);
-}
-@font-face {
     font-family: "Montserrat";
     src: url(assets/fonts/Montserrat-VariableFont_wght.ttf);
-}
-@font-face {
-    font-family: "ITC Avant Garde Gothic Std Book";
-    src: url(assets/fonts/itc.ttf);
 }
 body {
     margin: 0;
@@ -44,10 +36,20 @@ code {
     height: 100vh;
 }
 .all-father {
-    background-color: white;
     /* margin-left: 2.9ch; */
-    border-radius: 30px 0 0 0;
+    /* border-radius: 30px 0 0 0; */
     overflow: clip;
+}
+.theme-light {
+    background-color: white;
+    color: black;
+}
+.theme-dark {
+    background-color: rgb(50, 50, 50);
+    color: white;
+}
+.body-2 {
+    background-color: inherit;
 }
 .curve-handle-div {
     position: fixed;
@@ -66,9 +68,9 @@ code {
     -webkit-box-shadow: 0 4.5px 3px rgba(100, 100, 100, 0.5);
     box-shadow: 0 4.5px 3px rgba(100, 100, 100, 0.5);
     overflow: clip;
+    background-color: inherit;
 }
 .app-bar-order {
-    background-color: white;
     display: -webkit-flex;
     padding-left: 6ch;
     padding-right: 6ch;
@@ -160,11 +162,11 @@ code {
 }
 a {
     text-decoration: none;
-    color: black;
+    color: inherit;
 }
 .underlined-link {
     padding-bottom: 13px;
-    border-bottom: 3px solid rgba(0, 0, 0, 0.5);
+    border-bottom: 3px solid #d9d9d990;
     margin-top: 13px !important;
 }
 .underlined-link-white {
@@ -173,7 +175,7 @@ a {
     margin-top: 13px !important;
 }
 .underlined-link-white:hover {
-    color: rgba(0, 0, 0, 0.5);
+    opacity: 50%;
 }
 .hero {
     /* margin-top: 10ch; */
@@ -201,9 +203,10 @@ a {
     /* gap: 13ch; */
     height: 100vh;
     /* width: 100%; */
-    background-color: white;
+    /* background-color: white; */
 }
 .page-option-for-small > * + * {
+    background-color: inherit;
     margin-top: 13ch;
 }
 .page-option-for-small-body {
@@ -217,7 +220,6 @@ a {
     justify-content: center;
     /* gap: 12ch; */
     /* width: 100%; */
-    background-color: white;
 }
 .page-option-for-small-body > * + * {
     margin-top: 12ch;
@@ -262,7 +264,8 @@ button {
 .bio-text {
     text-align: left;
     /* font-family: ITC Avant Garde Gothic Std; */
-    font-family: "ITC Avant Garde Gothic Std Book", sans-serif;
+    /* font-family: "ITC Avant Garde Gothic Std Book", sans-serif; */
+    font-family: "Montserrat";
     font-weight: bold;
     font-size: 20px;
     max-width: 45ch;
@@ -347,7 +350,8 @@ button {
 
 /* #region find me page*/
 .find-me {
-    font-family: "ITC Avant Garde Gothic Std Book", sans-serif;
+    /* font-family: "ITC Avant Garde Gothic Std Book", sans-serif; */
+    font-family: "Montserrat";
     display: flex;
     margin-top: 10ch;
     flex-direction: row;
@@ -408,14 +412,14 @@ button {
     gap: 8px;
 }
 .submit-button {
-    background-color: black;
-    color: white;
+    border: rgba(200, 200, 200, 1) 1px solid;
     font-size: 20px;
     padding: 10px;
+    color: inherit;
 }
 input,
 textarea {
-    background-color: #d9d9d9;
+    background-color: #d9d9d980;
     width: 100%;
     padding: 9px 20px;
     border: none;
@@ -433,19 +437,15 @@ button:hover {
     background-size: 400% 400%;
     animation: gradient 3s forwards infinite;
 }
-.cls-1 {
-    fill: #1a1a1a;
-    animation: hideshow 7s ease infinite;
-}
 @keyframes hideshow {
     25% {
-        opacity: 0.25;
+        fill: #f2f2f2;
     }
     50% {
-        opacity: 1;
+        fill: black;
     }
     75% {
-        opacity: 0.25;
+        fill: #f2f2f2;
     }
 }
 @keyframes hideshowinverted {
@@ -459,6 +459,10 @@ button:hover {
         fill: black;
     }
 }
+.cls-1 {
+    fill: #1a1a1a;
+    animation: hideshow 7s ease infinite;
+}
 .cls-2 {
     /* fill:; */
     fill: #f2f2f2;
@@ -468,11 +472,7 @@ button:hover {
     width: 200px;
 }
 .loading-page {
-    background-image: linear-gradient(
-        to bottom right,
-        white,
-        rgba(255, 255, 255, 1)
-    );
+    background-color: inherit;
     position: fixed;
     z-index: 100;
     top: 0;
@@ -493,7 +493,7 @@ button:hover {
     width: 100%;
     height: 100vh;
     /* background-color: rgba(0, 0, 0, 0.2); */
-    background-color: rgb(230, 230, 230);
+    /* background-color: white; */
     display: flex;
     justify-content: space-around;
     /* padding-left:5ch ; */

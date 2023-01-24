@@ -19,15 +19,12 @@ export const Home = () => {
         const heroImage = document.getElementById("mainImage");
 
         heroImage.onload = () => {
-            console.log("Image Loaded");
             const interval = setInterval(() => {
-                console.log(heroImage.naturalHeight);
                 if (
                     heroImage.naturalWidth > 0 &&
                     heroImage.naturalHeight > 224
                 ) {
                     clearInterval(interval);
-                    console.log("Image rendered");
                     setLoadingFalse();
                 }
             }, 20);
@@ -43,7 +40,7 @@ export const Home = () => {
         // return setLoadingFalse;
     }, [location.pathname]);
     return (
-        <div style={loading ? { overflow: "hidden" } : {}}>
+        <div className="body-2" style={loading ? { overflow: "hidden" } : {}}>
             {loading ? <Loading /> : <></>}
             <div className="hero">
                 <img

@@ -326,3 +326,16 @@
         margin: 1ch;
     }
 }
+
+.font-bold {
+    font-weight: bold;
+}
+.font-normal {
+    font-weight: normal;
+}
+.font-light {
+    font-weight: lighter;
+}
+.cursor-pointer {
+    cursor: pointer;
+}
