@@ -79,7 +79,7 @@ export const Home = () => {
                         img={wireframes}
                         size="large"
                         alt="Wireframes"
-                        title="WIREFRAMES IN FIGMA"
+                        title="WIREFRAMES"
                         miniTitle="WEB DESIGNS"
                         linkTo="/services/wireframes"
                     />
@@ -90,7 +90,9 @@ export const Home = () => {
                         size="large"
                         alt="Motion Graphics"
                         title="MOTION GRAPHICS"
-                        miniTitle="UGC"
+                        miniTitle="VIDEO ADS"
+                        linkTo="https://www.dropbox.com/sh/ix6hbhvfftk6k45/AABfpmg51SZm2fUdSoZKFltga?dl=0"
+                        typeOfLink="External"
                         // linkTo="/services/motion-graphics"
                     />
                     <ServicesShower

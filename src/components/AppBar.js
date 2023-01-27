@@ -89,13 +89,13 @@ export default function AppBar() {
                         </Link>
                     </div>
                     <div className="inner-socials">
-                        <a href="https://twitter.com">
+                        <a href="https://twitter.com/Tomy_trex">
                             <BsTwitter />
                         </a>
-                        <a href="https://instagram.com">
+                        <a href="https://www.instagram.com/bonafaciod">
                             <AiFillInstagram />
                         </a>
-                        <a href="https://vimeo.com">
+                        <a href="https://vimeo.com/bonafacio">
                             <BsVimeo />
                         </a>
                     </div>
@@ -160,13 +160,13 @@ export default function AppBar() {
                         />
                     </div>
                     <div className="app-bar-socials-order">
-                        <a href="https://twitter.com">
+                        <a href="https://twitter.com/Tomy_trex">
                             <BsTwitter />
                         </a>
-                        <a href="https://instagram.com">
+                        <a href="https://www.instagram.com/bonafaciod">
                             <AiFillInstagram />
                         </a>
-                        <a href="https://vimeo.com">
+                        <a href="https://vimeo.com/bonafacio">
                             <BsVimeo />
                         </a>
                     </div>

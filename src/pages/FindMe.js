@@ -33,16 +33,16 @@ export const FindMe = () => {
                         <a href="mailto:Tommy@bonafacio.cc">contact@tomyd.cc</a>
                     </div>
                     <div>+251-932-659-803</div>
-                    <div>Addis Ababa, Bole Road</div>
+                    <div>Addisababa, Ethiopia</div>
 
                     <div className="inner-socials inner-socials-find-me">
-                        <a href="https://twitter.com">
+                        <a href="https://twitter.com/Tomy_trex">
                             <BsTwitter />
                         </a>
-                        <a href="https://instagram.com">
+                        <a href="https://www.instagram.com/bonafaciod">
                             <AiFillInstagram />
                         </a>
-                        <a href="https://vimeo.com">
+                        <a href="https://vimeo.com/bonafacio">
                             <BsVimeo />
                         </a>
                     </div>
