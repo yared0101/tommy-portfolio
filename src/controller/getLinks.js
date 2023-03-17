@@ -9,7 +9,7 @@ async function getLinks(filter={}) {
   let formData = new FormData();
   formData.append('filter',JSON.stringify(filter));
 
-  await axios.post(path.api+'/pages/getLinks.php',formData)
+  await axios.post(path.api+'/pages/getLinks.php',formData,{withCredentials:true})
   .then((res) => {
     if(res) {
       result.return = res.data.return;
