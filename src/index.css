@@ -1,13 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  height: 100%;
+}
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: 'Helvetica Regular', 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  min-height: 100%;
+  position: relative;
+  /* border: 1px solids red; */
+}
+
+#root {
+  height: 100% !important;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+@layer base {
+  .sw {
+    width: 87%;
+  }
+  .test {
+    border: 1px solid red;
+  }
+
+  h1,h2,h3 {
+    @apply !leading-none font-bold;
+  }
+  h1 {
+    @apply text-4xl;
+  }
+  h2 {
+    @apply text-2xl;
+  }
+  h3 {
+    @apply text-xl;
+  }
+
+
+  .bgcreative {
+    background-image: url('./assets/images/bgcreative.png');
+  }
+
+  .btn_sty1 {
+    @apply rounded-full bg-secondary text-primary px-7 py-1 font-semibold inline-block ;
+  }
+  .btn_sty1.dark {
+    @apply bg-black text-white;
+  }
+
+  .grad-tb {
+    background: linear-gradient(180deg, black 20%, #111 80%);
+  }
+  .grad-diag {
+    background: linear-gradient(165deg, black 55%, #1d1f21 100%, #363b43 40%);
+  }
+
+  .slide {
+    animation: slide .3s ease-in-out;
+  }
+  .slideoff {
+    -webkit-animation: slide-out-left 0.3s linear both;
+            animation: slide-out-left 0.3s linear both;
+  }
+}
+
+
+@layer components {
+  .card-sty1 {
+    @apply bg-white rounded-2xl max-h-[408px] w-full overflow-hidden inline-block self-center;
+  }
 }

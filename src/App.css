@@ -1,38 +1,115 @@
-.App {
-  text-align: center;
+#root {
+  height: 100vh !important;
+}
+@font-face {
+  font-family: "Helvetica Bold";
+  src: url("./assets/fonts/Source_Helvetica_Now/HelveticaNowMicro-Bold.otf");
+}
+@font-face {
+  font-family: "Helvetica Regular";
+  src: url("./assets/fonts/Source_Helvetica_Now/HelveticaNowMicro-Regular.otf");
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+
+
+
+h1.wave {
+	position: absolute;
+	/* top: 50%; */
+	/* transform: translate(0, -105%); */
+	text-transform: uppercase;
+	font-size: 9em;
+	font-family: arial;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+h1.wave:nth-child(1) {
+	color: transparent;
+	-o-text-stroke: 1px rgb(135, 206, 235, 0.35);
+	-moz-text-stroke: 1px rgb(135, 206, 235, 0.35);
+	-webkit-text-stroke: 1px rgb(5, 255, 234,.5);
+}
+
+h1.wave:nth-child(2) {
+	color: skyblue;
+	animation: water 6s ease-in-out infinite;
+}
+h1.wave:nth-child(3) {
+	color: rgba(0,0,100,.4);
+	animation: water2 6s ease-in-out infinite;
+  animation-delay: 1000ms;
+}
+h1.wave:nth-child(4) {
+	color: rgba(13, 222, 111, 0.374);
+	animation: water2 6s ease-in-out infinite;
+  animation-delay: 100ms;
+}
+
+@keyframes water {
+	0%,
+	100% {
+		clip-path: polygon(0 47%, 8% 36%, 19% 27%, 31% 29%, 42% 45%, 48% 66%, 58% 79%, 76% 79%, 89% 75%, 100% 63%, 100% 100%, 0 100%);
+	}
+
+	50% {
+		clip-path: polygon(0 64%, 8% 76%, 19% 80%, 31% 78%, 42% 68%, 48% 46%, 58% 30%, 76% 28%, 89% 37%, 100% 48%, 100% 100%, 0 100%);
+	}
+}
+@keyframes water2 {
+	0%,
+	100% {
+		clip-path: polygon(0 47%, 8% 36%, 19% 27%, 31% 29%, 42% 45%, 48% 66%, 58% 79%, 76% 79%, 89% 75%, 100% 63%, 100% 100%, 0 100%);
+	}
+
+	60% {
+		clip-path: polygon(0 64%, 8% 76%, 19% 80%, 31% 78%, 42% 68%, 48% 46%, 58% 30%, 76% 28%, 89% 37%, 100% 48%, 100% 100%, 0 100%);
+	}
+}
+
+
+
+
+
+
+@keyframes slide {
+  0% {
+    transform: translatex(100%);
+		filter: blur(40px);
+  }
+  100% {
+    transform: translateX(0);
+		filter: blur(0);
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@-webkit-keyframes slide-out-left {
+  0% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    opacity: 1;
+		filter: blur(20px);
   }
-  to {
-    transform: rotate(360deg);
+  100% {
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+    opacity: 0;
+		filter: blur(70px);
+    display: none;
+  }
+}
+@keyframes slide-out-left {
+  0% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    opacity: 1;
+		filter: blur(20px);
+  }
+  100% {
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+    opacity: 0;
+		filter: blur(70px);
+    display: none;
   }
 }
