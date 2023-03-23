@@ -8,18 +8,18 @@ import {ReactComponent as LinkedIn} from '../assets/icons/svg/linkedin.svg';
 
 function Header() {
   return (
-    <div className="flex flex-col items-center grad-tb">
-      <div className="flex sw py-4 justify-between">
+    <div className="flex flex-col items-center grad-tb py-2">
+      <div className="flex sw py-4 gap-10 justify-between">
         <div className="flex gap-3">
           <Logo width={25} />
           Logo Text
         </div>
-        <div className="flex-1 hidden sm:flex justify-center gap-10">
+        <div className="flex-1 hidden sm:flex justify-center gap-10 ">
           <Link to="/">Home</Link>
           <Link to="/creatives">Creatives</Link>
           <Link to="/findme">Find me</Link>
         </div>
-        <div className="hidden sm:flex gap-4 list-none">
+        <div className="hidden sm:flex gap-7 list-none">
           <Link to="https://twitter.com"><Twitter /></Link>
           <Link to="https://insta.com"><Insta /></Link>
           <Link to="https://linkedin.com"><LinkedIn /></Link>

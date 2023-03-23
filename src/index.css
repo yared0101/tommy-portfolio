@@ -7,7 +7,7 @@ html {
 }
 body {
   margin: 0;
-  font-family: 'Helvetica Regular', 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'Helvetica Light', 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
     sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -34,11 +34,16 @@ code {
     border: 1px solid red;
   }
 
+
+  a {
+    @apply text-[#B2B5BA] hover:text-white;
+  }
+
   h1,h2,h3 {
-    @apply !leading-none font-bold;
+    @apply !leading-none font-extrabold font-bold;
   }
   h1 {
-    @apply text-4xl;
+    @apply text-[40px];
   }
   h2 {
     @apply text-2xl;
@@ -48,19 +53,38 @@ code {
   }
 
 
+  b,
+  .bolder {
+    font-family: 'Helvetica Bold';
+  }
   .bgcreative {
     background-image: url('./assets/images/bgcreative.png');
   }
 
   .btn_sty1 {
-    @apply rounded-full bg-secondary text-primary px-7 py-1 font-semibold inline-block ;
+    @apply rounded-full bg-secondary text-primary px-7 py-1 font-semibold uppercase italic inline-block hover:bg-transparent hover:text-white duration-300 transition-colors border border-white;
   }
   .btn_sty1.dark {
-    @apply bg-black text-white;
+    @apply bg-black text-white hover:text-black border border-black hover:bg-transparent;
+  }
+
+  .brdr-act {
+    position: relative;
+  }
+  .brdr-act::before {
+    content: "";
+    width: 100%;
+    transform: scale(.85);
+    border-bottom: 4px solid white;
+    border-radius: 200px;
+    position: absolute;
+    display: block;
+    bottom: -7px;
+    padding: 1px;
   }
 
   .grad-tb {
-    background: linear-gradient(180deg, black 20%, #111 80%);
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.98) 20%, #111111d7 80%);
   }
   .grad-diag {
     background: linear-gradient(165deg, black 55%, #1d1f21 100%, #363b43 40%);

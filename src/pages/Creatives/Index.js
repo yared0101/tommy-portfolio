@@ -43,11 +43,18 @@ function Index() {
       for(let file of obj.data) {
         if(objList.length < row)
           objList.push([]);
-        objList[count%row].push(
-          <div className="card-sty1 " key={Math.random()*10}>
-            <img alt={file.name} src={path.pages+"/"+file.link} className="w-full h-full object-cover" />
-          </div>
-        );
+        file.name.split(".").pop() !== 'mp4' ?
+          objList[count%row].push(
+            <div className="card-sty1 " key={Math.random()*10}>
+              <img alt={file.name} src={path.pages+"/"+file.link} className="w-full h-full object-cover" />
+            </div>
+          )
+        :
+          objList[count%row].push(
+            <div className="card-sty1" key={Math.random()*10}>
+              <video controls={false} src={path.pages+"/"+file.link} className="w-full !h-full !max-h-[300px]" />
+            </div>
+          )
         count+=1;
       }
       
@@ -67,16 +74,16 @@ function Index() {
         {
           list.map((link,ind) => (
             <Link key={ind} to={`/creatives/${link.name}`}
-              className={(link.name === page) || (page==null?ind===0:false)?'text-white border-bottom border-white ':''}
+              className={(link.name === page) || (page==null?ind===0:false)?'text-white brdr-act ':''}
             >{link.name}</Link>
           ))
         }
       </div>
-      <div className=" p-8 sw">
+      <div className=" p-8 w-[75%]">
         <div className="flex flex-wrap items-start justify-center gap-4">
           {
             listItems().map((row,ind) => (
-              <div className="flex flex-wrap justify-center gap-4 flex-1 max-w-[462px]">
+              <div key={ind} className=" flex flex-wrap justify-center gap-4 flex-1 !min-w-[222px] max-w-[222px] ">
                 {row}
               </div>
             ))
@@ -85,8 +92,8 @@ function Index() {
       </div>
       <div className="flex items-center pb-32">
         <div className="flex flex-col gap-4 items-center py-16">
-          <h1 className="text-[70px]">Got time for more?</h1>
-          <p>Check out my Dropbox to have a look at my work</p>
+          <h1 className="text-[50px] bolder capitalize">Got time for more?</h1>
+          <p className="text-[#aaa]">Check out my Dropbox to have a look at my work</p>
           <Link to="#" className="btn_sty1 py-3 flex gap-2 items-center">
             Browse Work 
             <Play fill="white" className="inline-block h-4" />

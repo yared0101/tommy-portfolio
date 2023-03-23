@@ -9,6 +9,10 @@
   font-family: "Helvetica Regular";
   src: url("./assets/fonts/Source_Helvetica_Now/HelveticaNowMicro-Regular.otf");
 }
+@font-face {
+  font-family: "Helvetica Light";
+  src: url("./assets/fonts/Source_Helvetica_Now/HelveticaNowMicro-Light.otf");
+}
 
 
 
