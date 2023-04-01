@@ -3,11 +3,16 @@ import {ReactComponent as Twitter} from '../../assets/icons/svg/twitter.svg';
 import {ReactComponent as Insta} from '../../assets/icons/svg/insta.svg';
 import {ReactComponent as LinkedIn} from '../../assets/icons/svg/linkedin.svg';
 import { Link } from "react-router-dom";
+import Header from "../../components/Header";
 
 
 function Index() {
   return (
     <div className="flex flex-col justify-center items-center text-center h-[calc(100vh-80px)]">
+      <div className="sticky top-0 z-30 w-full" >
+        <Header />
+      </div>
+
       <div className='flex-1 flex flex-col gap-4 justify-center items-center'>
         <h1 className="uppercase text-5xl bolder">Contact</h1>
         <p>Tomy@tomyd.cc</p>

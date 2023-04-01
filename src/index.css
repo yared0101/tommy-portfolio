@@ -14,6 +14,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   min-height: 100%;
   position: relative;
+  letter-spacing: 1px;
   /* border: 1px solids red; */
 }
 
@@ -36,11 +37,11 @@ code {
 
 
   a {
-    @apply text-[#B2B5BA] hover:text-white;
+    @apply text-[#B2B5BA] hover:text-white font-["Helvetica_Bold"];
   }
 
   h1,h2,h3 {
-    @apply !leading-none font-extrabold font-bold;
+    @apply !leading-none font-extrabold;
   }
   h1 {
     @apply text-[40px];
@@ -52,6 +53,10 @@ code {
     @apply text-xl;
   }
 
+  p {
+    @apply font-["Helvetica_Medium"];
+  }
+
 
   b,
   .bolder {
@@ -59,10 +64,12 @@ code {
   }
   .bgcreative {
     background-image: url('./assets/images/bgcreative.png');
+    background-repeat: no-repeat;
+    background-position: bottom;
   }
 
   .btn_sty1 {
-    @apply rounded-full bg-secondary text-primary px-7 py-1 font-semibold uppercase italic inline-block hover:bg-transparent hover:text-white duration-300 transition-colors border border-white;
+    @apply rounded-full bg-secondary font-['Helvetica_Bold'] text-[20px] !tracking-normal text-primary px-7 py-1 font-semibold uppercase italic inline-block hover:bg-transparent hover:text-white duration-300 transition-colors border border-white;
   }
   .btn_sty1.dark {
     @apply bg-black text-white hover:text-black border border-black hover:bg-transparent;

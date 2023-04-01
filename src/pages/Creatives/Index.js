@@ -3,6 +3,8 @@ import { Link, useParams } from "react-router-dom";
 import { ReactComponent as Play } from "../../assets/icons/svg/play.svg";
 import getLinks from "../../controller/getLinks";
 import listItems from "./ListItems";
+import Footer from "../../components/Footer";
+import Header from "../../components/Header";
 
 
 function Index() {
@@ -18,20 +20,25 @@ function Index() {
 
     var res = await getLinks(filter);
     // console.log(res.data)
-    if(res.data.length > 0)
-      setList(res.data.sort((a,b) => b.time - a.time));
+    setList(res.data);
 
   }
 
 
   return (
-    <div className="flex flex-col items-center">
-      <div className="pt-10 w-full flex items-end justify-center bgcreative ">
-        <div className="sw ">
-          <h1 className="uppercase translate-y-[8px]">Creative Library</h1>
+    <div className="flex flex-col items-center relative">
+      <div className="w-full bgcreative">
+        <div className="sticky top-0 z-30" >
+          <Header />
+        </div>
+
+        <div className="pt-10 w-full flex items-end justify-center ">
+          <div className="w-[75%]">
+            <h1 className="uppercase bolder translate-y-[8px]">Creative Library</h1>
+          </div>
         </div>
       </div>
-      <div className="flex gap-6 px-3 p-4 sw text-[#aaa] overflow-x-auto">
+      <div className="w-[75%] flex gap-6 py-6 px-3 p-4 sw text-[#aaa] overflow-x-auto">
         {
           list.map((link,ind) => (
             <Link key={ind} to={`/creatives/${link.name}`}
@@ -57,10 +64,11 @@ function Index() {
           <p className="text-[#aaa]">Check out my Dropbox to have a look at my work</p>
           <Link to="#" className="btn_sty1 py-3 flex gap-2 items-center">
             Browse Work 
-            <Play fill="white" className="inline-block h-4" />
+            <Play fill="white" className="inline-block h-6" />
           </Link>
         </div>
       </div>
+      <Footer />
     </div>
   )
 }

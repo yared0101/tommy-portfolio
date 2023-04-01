@@ -3,15 +3,15 @@
 }
 @font-face {
   font-family: "Helvetica Bold";
-  src: url("./assets/fonts/Source_Helvetica_Now/HelveticaNowMicro-Bold.otf");
-}
-@font-face {
-  font-family: "Helvetica Regular";
-  src: url("./assets/fonts/Source_Helvetica_Now/HelveticaNowMicro-Regular.otf");
+  src: url("./assets/fonts/HelveticaNeue Bold.ttf");
 }
 @font-face {
   font-family: "Helvetica Light";
-  src: url("./assets/fonts/Source_Helvetica_Now/HelveticaNowMicro-Light.otf");
+  src: url("./assets/fonts/HelveticaNeue Light.ttf");
+}
+@font-face {
+  font-family: "Helvetica Medium";
+  src: url("./assets/fonts/HelveticaNeue Medium.ttf");
 }
 
 
