@@ -18,10 +18,11 @@ function Index() {
   async function load(page) {
     let filter = {limit:1};
 
+    
     var res = await getLinks(filter);
     // console.log(res.data)
     setList(res.data);
-
+    
   }
 
 
@@ -48,7 +49,7 @@ function Index() {
         }
       </div>
       <div className=" p-8 w-[75%]">
-        <div className="flex flex-wrap items-start justify-center gap-4">
+        <div className={"flex flex-wrap items-start justify-center gap-4 pb-4 "+(page === "UGC Contents" ? ' !justify-start overflow-x-auto !flex-nowrap ' : '')}>
           {
             listItems(list,page).map((row,ind) => (
               <div key={ind} className=" flex flex-wrap justify-center gap-4 flex-1 !min-w-[222px] max-w-[222px] ">
