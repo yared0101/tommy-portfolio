@@ -1,4 +1,4 @@
-import React,{useEffect, useState} from "react";
+import React,{ useEffect, useState} from "react";
 import { Link } from "react-router-dom";
 import { ReactComponent as Play } from "../../assets/icons/svg/play.svg";
 import membership from '../../assets/images/membership.png';
@@ -72,6 +72,7 @@ function ReInforcement() {
 
   async function load() {
     var res = await getLinks();
+    console.log(res);
     if(res.return)
       setLinks(res.data);
   }
@@ -108,15 +109,27 @@ function ReInforcement() {
                 <div key={ind} className={'absolute snap-x snap-mandatory flex flex-nowrap overflow-x-auto w-full h-full '+(ind===curInd ? 'slide':'slideoff !overflow-x-hidden')}>
                   {/* <div className="absolute top-0 left-0 bg-white text-black flex items-center justify-center m-2 w-10 h-10 border border-black rounded-full">{curInd}</div> */}
                 {
-                  link.data.map((data,i) => (
-                    data.type === 'file' ?
-                      <div key={i} className="snap-start snap-always min-w-[100%] w-full h-full">
-                        <img src={path.pages+"/"+data.link} key={i} className="object-cover w-full h-full " alt={link.name} />
-                      </div>
+                  link.data.slice(0,4).map((data,i) => { 
+                    return (
+                      data.type === 'file' ?
+                      data.name.split(".").pop() === 'mp4' ?
+                        <div key={i} className="snap-start snap-always min-w-[100%] w-full h-full relative">
+                          <Link to={path.pages+"/"+data.link}>
+                            <video controls={false} src={path.pages+"/"+data.link} className="object-cover w-full h-full" />
+                          </Link>
+                        </div>
+                        :
+                        <div key={i} className="snap-start snap-always min-w-[100%] w-full h-full">
+                            <img src={path.pages+"/"+data.link} key={i} className="object-cover w-full h-full " alt={link.name} />
+                        </div>
                       :
                       <h1 key={i} className='w-full h-full flex items-center justify-center z-10 text-primary/40'>Comming Soon!</h1>
-                  ))
+                    )
+                  })
                 }
+                <Link to={"creatives/"+link.name} className=' snap-start snap-always min-w-[100%] w-full h-full flex items-center justify-center z-10 hover:text-primary/20'>
+                  <h1 >See More...</h1>
+                </Link>
                 {
                   link.data.length < 1 ? (
                     <h1 className='absolute w-full h-full flex items-center justify-center z-10 text-primary/40'>Comming Soon!</h1>
