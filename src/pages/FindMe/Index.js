@@ -8,24 +8,26 @@ import Header from "../../components/Header";
 
 function Index() {
   return (
-    <div className="flex flex-col justify-center items-center text-center h-[calc(100vh-80px)]">
+    <div className="flex flex-col justify-center items-center relative">
       <div className="sticky top-0 z-30 w-full" >
         <Header />
       </div>
 
-      <div className='flex-1 flex flex-col gap-4 justify-center items-center'>
-        <h1 className="uppercase text-5xl bolder">Contact</h1>
-        <p>Tomy@tomyd.cc</p>
-        <p>(251)919-781-944</p>
-        <div className=" flex justify-between w-[50%]">
-          <Link to="https://twitter.com"><Twitter /></Link>
-          <Link to="https://insta.com"><Insta /></Link>
-          <Link to="https://linkedin.com"><LinkedIn /></Link>
+      <div className="h-[calc(100vh-80px)] flex flex-col justify-center">
+        <div className='flex-1 flex flex-col gap-4 justify-center items-center'>
+          <h1 className="uppercase text-5xl bolder">Contact</h1>
+          <p>Tomy@tomyd.cc</p>
+          <p>(251)919-781-944</p>
+          <div className=" flex justify-between w-[50%]">
+            <Link to="https://twitter.com"><Twitter /></Link>
+            <Link to="https://insta.com"><Insta /></Link>
+            <Link to="https://linkedin.com"><LinkedIn /></Link>
+          </div>
         </div>
+        <small className="h-[20%]">
+          Really good designers @ 2022. All Rights Reserved.
+        </small>
       </div>
-      <small className="h-[20%]">
-        Really good designers @ 2022. All Rights Reserved.
-      </small>
     </div>
   );
 }

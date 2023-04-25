@@ -43,27 +43,27 @@ function Index() {
         {
           list.map((link,ind) => (
             <Link key={ind} to={`/creatives/${link.name}`}
-              className={'text-center '+((link.name === page) || (page==null?ind===0:false)?'text-white brdr-act ':'')}
+              className={'text-center whitespace-nowrap '+((link.name === page) || (page==null?ind===0:false)?'text-white brdr-act ':'')}
             >{link.name}</Link>
           ))
         }
       </div>
       <div className=" p-8 w-[75%]">
-        <div className={"flex flex-wrap items-start justify-center gap-4 pb-4 "+(page === "UGC Contents" ? ' !justify-start lg:!justify-center overflow-x-auto !flex-nowrap ' : '')}>
+        <div className={"flex flex-wrap items-start justify-center gap-4 pb-4 "+(page === "UGC Contents" ? ' !justify-start lg:!justify-center snap-x snap-mandatory overflow-x-auto !flex-nowrap ' : '')}>
           {
             listItems(list,page).map((row,ind) => (
-              <div key={ind} className=" flex flex-wrap justify-center gap-4 flex-1 !min-w-[222px] max-w-[222px] ">
+              <div key={ind} className="snap-center  flex flex-wrap justify-center gap-4 flex-1  !min-w-[222px] sm:max-w-[222px] ">
                 {row}
               </div>
             ))
           }
         </div>
       </div>
-      <div className="flex items-center pb-32">
+      <div className="flex items-center pb-32 px-4">
         <div className="flex flex-col gap-4 items-center py-16">
           <h1 className="text-[50px] bolder capitalize">Got time for more?</h1>
-          <p className="text-[#aaa]">Check out my Dropbox to have a look at my work</p>
-          <Link to="#" className="btn_sty1 py-3 flex gap-2 items-center">
+          <p className="text-[#aaa] ">Check out my Dropbox to have a look at my work</p>
+          <Link to="#" className="btn_sty1 py-3 flex gap-2 items-center self-center">
             Browse Work 
             <Play fill="white" className="inline-block h-6" />
           </Link>

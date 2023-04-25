@@ -101,8 +101,8 @@ function ReInforcement() {
         <h1 className="uppercase font-normal text-[49px]">Creative <b>Ad</b> & <b>Designs</b> For Your Brand.</h1>
         <p className="text-gray-400 py-2 text-[22px]">Browse the type of projects you would like to see</p>
       </div>
-      <div className="flex items-center justify-center gap-16">
-        <div className=" h-96 w-[50%]">
+      <div className="flex !flex-wrap items-center sm:justify-center gap-16">
+        <div className=" h-96 w-full md:w-[70%] lg:w-[50%]">
           <div className="w-full max-w-[700px] h-full relative bg-white overflow-hidden ">
             {
               links.map((link,ind) => (
@@ -130,17 +130,12 @@ function ReInforcement() {
                 <Link to={"creatives/"+link.name} className=' snap-start snap-always min-w-[100%] w-full h-full flex items-center justify-center z-10 hover:text-primary/20'>
                   <h1 >See More...</h1>
                 </Link>
-                {
-                  link.data.length < 1 ? (
-                    <h1 className='absolute w-full h-full flex items-center justify-center z-10 text-primary/40'>Comming Soon!</h1>
-                  ) : null
-                }
                 </div>
               ))
             }
           </div>
         </div>
-        <div className="w-[30%] flex flex-col p-4 gap-5 font-semibold text-xl">
+        <div className="flex flex-col p-4 gap-5 font-semibold text-xl">
           {
             links.map((link,ind) => (
               <Nav to="#" key={ind} onMouseOver={(ev) => changePage(ev,ind)} active={ind===curInd}>{link.name}</Nav>
@@ -155,8 +150,8 @@ function ReInforcement() {
 function HeadLine() {
   return (
     <div className="grad-diag w-full flex flex-col items-center">
-      <div className="flex flex-col gap-20 sw p-10 justify-center min-h-[70vh] h-[calc(100vh-75px)]">
-        <div className="text-center">
+      <div className="flex flex-col gap-20 sw px-2 sm:px-10 p-10 justify-center min-h-[calc(100vh-75px)]">
+        <div className="lg:text-center">
           <h1 className="!text-[92px] bolder uppercase">I Bring Ideas To Life.</h1>
         </div>
         {/* <div className="relative h-[400px] sm:!h-[300px] md:!h-[200px] lg:!h-[120px]">
@@ -165,7 +160,7 @@ function HeadLine() {
           <h1 className="!text-[80px] uppercase wave">I Bring Ideas To Life.</h1>
           <h1 className="!text-[80px] uppercase wave">I Bring Ideas To Life.</h1>
         </div> */}
-        <div className="flex justify-between items-center flex-wrap gap-10 px-10">
+        <div className="flex justify-between items-center flex-wrap gap-10 lg:px-10">
           <p className="text-gray-500 text-[23px]">Currently with <span className="capitalize italic text-secondary"> little joe Woman</span></p>
           <a href="/#" className="btn_sty1 py-3 flex gap-3 items-center italic uppercase">Browse Work <Play className="inline-block h-6" /></a>
         </div>
