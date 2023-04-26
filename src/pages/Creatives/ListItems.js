@@ -13,18 +13,29 @@ function listItems(list,page) {
   ];
   
   if(obj) {
+    let config = obj.data.find((obj,i) => obj.name === 'config.json');
+    if(config)
+      console.log('-- ',config);
+
+    // fetch(`${path.pages}/${config.link}`)
+    //   .then((response) => response.json())
+    //   .then((json) => console.log(json));
+
     if(obj.data.length > 0)
       objList = [];
     
-    let row = 4;
+    let row = 3;
     // for(let i=0;i<row;i++) // push empty array row times
     //   objList.push([]);
 
     let count = row;
     for(let file of obj.data) {
+      let ext = file.name.split(".").pop();
+      if(ext === 'json') continue;
+
       if(objList.length < row)
         objList.push([]);
-      file.name.split(".").pop() !== 'mp4' ?
+      ext !== 'mp4' ?
         objList[count%row].push(
           <div className="card-sty1 " key={Math.random()*10}>
             <img alt={file.name} src={path.pages+"/"+file.link} className="w-full h-full object-cover" />

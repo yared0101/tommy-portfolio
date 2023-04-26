@@ -1,7 +1,7 @@
 import React,{ useEffect, useState} from "react";
 import { Link } from "react-router-dom";
 import { ReactComponent as Play } from "../../assets/icons/svg/play.svg";
-import membership from '../../assets/images/membership.png';
+import dosome from '../../assets/images/dosome.png';
 import { path } from "../../controller/config";
 import getLinks from "../../controller/getLinks";
 import {ReactComponent as Arrow} from '../../assets/icons/svg/arrow.svg';
@@ -25,36 +25,20 @@ function Index() {
 
 function CallToAction() {
   return (
-    <div className="w-full bg-gray-300 text-primary flex flex-col items-center">
-      <div className=" flex gap-10 sw justify-center items-center my-20 flex-wrap">
-        <div className="flex-1 min-w-[360px] md:max-w-[300px] self-stretch flex flex-col gap-6 items-start">
-          <div className="flex-1 flex flex-col gap-2 justify-end">
-            <h3 className="bolder text-[24px]">Who am I?</h3>
-            <p className="text-[18px] font-['Helvetica_Light'] font-light">Tommy is self taught Ad creator, website designer and video editor.</p>
-          </div>
-          <div className="flex-1">
-            <button className="btn_sty1 dark py-3 flex gap-3 items-center">
-              Browse Work
-              <Play fill="white" className="inline-block h-6" />
-            </button>
+    <div className="w-full flex flex-col text-gray-300 items-center">
+      <div className=" flex flex-row-reverse gap-5 sw justify-between  items-center my-20 flex-wrap">
+        <div className="flex-1 flex justify-center max-w-full">
+          <div className="flex-1 sm:mr-10 relative overflow-hidden min-w-[380px] max-w-[550px]">
+            <img alt='bg' src={dosome} className="w-full h-full" />
           </div>
         </div>
-        <div className="flex-1 relative overflow-hidden min-w-[380px] max-w-[550px]">
-          <img alt='bg' src={membership} className="w-full h-full" />
-          {/* <div className="absolute left-0 top-0 w-full h-full flex items-center justify-center">
-            <div className="bg-secondary rounded-2xl p-6 flex flex-col gap-4 px-20 text-color1 items-center">
-              <div className="flex rounded-md border overflow-hidden border-color1 list-none">
-                <li className="p-1 px-3 bg-color1 text-white">Monthly</li>
-                <li className="p-1 px-3 bg-white text-color1">Yearly</li>
-              </div>
-              <div className="text-center">
-                <p>Membership</p>
-                <h1>$10.00</h1>
-                <p className="uppercase font-semibold">Every Month</p>
-              </div>
-              <input type='button' value='Sign Up' className="btn_sty1 bg-yellow-400" />
+        <div className="flex-1 flex justify-center  max-w-full">
+          <div className="flex-1 min-w-[360px] md:max-w-[300px] self-center flex flex-col gap-6 items-start">
+            <div className="flex-1 flex flex-col gap-2 justify-end">
+              <p className="text-[18px] font-['Helvetica_Light'] font-light">Tommy is self taught Ad creator, website designer and video editor.</p>
+              <h3 className="bolder text-[24px] text-white">Available for hire</h3>
             </div>
-          </div> */}
+          </div>
         </div>
       </div>
       <Footer />
@@ -152,7 +136,7 @@ function HeadLine() {
     <div className="grad-diag w-full flex flex-col items-center">
       <div className="flex flex-col gap-20 sw px-2 sm:px-10 p-10 justify-center min-h-[calc(100vh-75px)]">
         <div className="lg:text-center">
-          <h1 className="!text-[92px] bolder uppercase">I Bring Ideas To Life.</h1>
+          <h1 className="text-[16vw] sm:!text-[92px] bolder uppercase">I Bring Ideas To Life.</h1>
         </div>
         {/* <div className="relative h-[400px] sm:!h-[300px] md:!h-[200px] lg:!h-[120px]">
           <h1 className="!text-[80px] uppercase wave">I Bring Ideas To Life.</h1>
@@ -162,7 +146,7 @@ function HeadLine() {
         </div> */}
         <div className="flex justify-between items-center flex-wrap gap-10 lg:px-10">
           <p className="text-gray-500 text-[23px]">Currently with <span className="capitalize italic text-secondary"> little joe Woman</span></p>
-          <a href="/#" className="btn_sty1 py-3 flex gap-3 items-center italic uppercase">Browse Work <Play className="inline-block h-6" /></a>
+          <a href="/#" className="btn_sty1 py-3 hidden sm:flex gap-3 items-center italic uppercase">Browse Work <Play className="inline-block h-6" /></a>
         </div>
       </div>
     </div>

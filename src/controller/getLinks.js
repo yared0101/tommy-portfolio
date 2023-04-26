@@ -14,7 +14,8 @@ async function getLinks(filter={}) {
     if(res) {
       result.return = res.data.return;
       result.msg = res.data.msg;
-      result.data = res.data.data.sort((a,b) => b.time - a.time);
+      result.data = res.data.data;
+      // result.data = res.data.data.sort((a,b) => b.time - a.time);
     }
 
     // console.log("db:",res.data);

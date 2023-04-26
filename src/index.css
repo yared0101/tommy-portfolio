@@ -10,11 +10,9 @@ body {
   font-family: 'Helvetica Light', 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
     sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   min-height: 100%;
   position: relative;
-  letter-spacing: 1px;
+  letter-spacing: .8px;
   /* border: 1px solids red; */
 }
 
@@ -29,7 +27,10 @@ code {
 
 @layer base {
   .sw {
-    width: 87%;
+    @apply w-[87%] max-screen-w;
+  }
+  .max-screen-w {
+    max-width: 1200px;
   }
   .test {
     border: 1px solid red;
@@ -65,11 +66,12 @@ code {
   .bgcreative {
     background-image: url('./assets/images/bgcreative.png');
     background-repeat: no-repeat;
-    background-position: bottom;
+    background-position: left bottom;
   }
 
   .btn_sty1 {
-    @apply rounded-full bg-secondary font-['Helvetica_Bold'] text-[20px] !tracking-normal text-primary px-7 py-1 font-semibold uppercase italic inline-block hover:bg-transparent hover:text-white duration-300 transition-colors border border-white;
+    @apply rounded-full bg-transparent font-['Helvetica_Bold'] text-[20px] !tracking-normal text-white px-7 py-1 font-semibold uppercase italic inline-block 
+    hover:bg-secondary hover:text-primary duration-300 transition-colors border border-white;
   }
   .btn_sty1.dark {
     @apply bg-black text-white hover:text-black border border-black hover:bg-transparent;
@@ -128,7 +130,7 @@ code {
 
 @layer components {
   .card-sty1 {
-    @apply bg-white rounded-2xl  w-full overflow-hidden inline-block self-center;
+    @apply bg-white rounded-2xl w-full overflow-hidden inline-block self-center;
   } 
   /* max-h-[408px] */
 }

@@ -34,8 +34,8 @@ function Index() {
         </div>
 
         <div className="pt-10 w-full flex items-end justify-center ">
-          <div className="w-[75%]">
-            <h1 className="uppercase bolder translate-y-[8px]">Creative Library</h1>
+          <div className="w-[75%] max-screen-w">
+            <h1 className="uppercase bolder !text-[44px] translate-y-[14px]">Creative Library</h1>
           </div>
         </div>
       </div>
@@ -43,16 +43,17 @@ function Index() {
         {
           list.map((link,ind) => (
             <Link key={ind} to={`/creatives/${link.name}`}
-              className={'text-center whitespace-nowrap '+((link.name === page) || (page==null?ind===0:false)?'text-white brdr-act ':'')}
+              className={'text-center scale-y-110 whitespace-nowrap '+((link.name === page) || (page==null?ind===0:false)?'text-white brdr-act ':'')}
             >{link.name}</Link>
           ))
         }
       </div>
-      <div className=" p-8 w-[75%]">
-        <div className={"flex flex-wrap items-start justify-center gap-4 pb-4 "+(page === "UGC Contents" ? ' !justify-start lg:!justify-center snap-x snap-mandatory overflow-x-auto !flex-nowrap ' : '')}>
+      <div className=" px-2 py-8 sm:p-8 w-[75%]">
+        <div className={"flex flex-wrap items-start justify-center gap-4 pb-4 "+(page === "UGC Contents" ? ' !justify-start xlg:!justify-center snap-x snap-mandatory overflow-x-auto !flex-nowrap ' : '')}>
           {
             listItems(list,page).map((row,ind) => (
-              <div key={ind} className="snap-center  flex flex-wrap justify-center gap-4 flex-1  !min-w-[222px] sm:max-w-[222px] ">
+              <div key={ind} className={"snap-center  flex flex-wrap justify-center gap-4 flex-1 !min-w-[300px] max-w-[222px] "
+                + (page === 'Video Ads' ? ' !min-w-[222px]':'')}>
                 {row}
               </div>
             ))

@@ -10,13 +10,13 @@ function Header() {
   const [menu,setMenu] = useState(false);
 
   return (
-    <div className="flex flex-col items-center grad-tb py-2">
+    <div className="flex flex-col items-center grad-tb py-[10px]">
       <div className="flex sw py-4 gap-10 justify-between">
-        <div className="flex gap-3">
+        <div className="flex gap-3 ">
           <Logo width={25} />
           Logo Text
         </div>
-        <div className="flex-1 hidden md:flex justify-center gap-10 ">
+        <div className="flex-1 hidden md:flex justify-center  gap-14 ">
           <Link to="/">Home</Link>
           <Link to="/creatives">Creatives</Link>
           <Link to="/findme">Find me</Link>

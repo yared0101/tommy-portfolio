@@ -9,6 +9,9 @@ module.exports = {
         'primary': 'black',
         'secondary': 'white',
         'color1': '#f50'
+      },
+      screens: {
+        'xlg': '1340px'
       }
     },
   },
