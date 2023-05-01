@@ -1,58 +1,113 @@
-import React, { createRef } from "react";
-import { path } from "../../controller/config";
+import React, { useEffect, useState } from "react";
+import { getConfig, path } from "../../controller/config";
 import VidComp from "../../components/Vid";
+import { useParams } from "react-router-dom";
+import Image from "../../components/Image";
 
 
-function listItems(list,page) {
-  let obj = list.find((obj,i)=>{return (obj.name===page) || (page==null?true:false)});
+const defConf = {
+  mode: 'row',
+  width: 300,
+  rows: 3,
+}
+function ListItems({list}) {
+  const {page} = useParams();
+  const [config,setConfig] = useState(defConf);
+  const [loadCount,setLoadCount] = useState(0);
+
+
+  let obj = list.find((obj) => {return (obj.name === page) || (page === undefined ? true : false)});
+
+  useEffect(() => {
+    load(obj);
+    return () => {
+      setConfig(defConf);
+    }
+  },[obj])
+
+  useEffect(() => {
+    setLoadCount(0);
+  },[page])
+
+  async function load(obj) {
+    if(obj) {
+      let configFile = obj.data.find((obj) => obj.name === 'config.json');
+      if(configFile) {
+        let data = await getConfig(`${path.pages}/${configFile.link}`)
+        setConfig(data);
+        // console.log(data);
+        return true;
+      }
+    }
+  }
+
+  function handleLoad(vid) {
+    let xsrc = vid.getAttribute('xsrc');
+    if(xsrc !== 'Loaded') {
+      setLoadCount(loadCount => loadCount+1);
+    }
+    vid.setAttribute('xsrc','Loaded')
+  }
+
+  return (
+    <RowsDisp obj={obj} config={config} loadCount={loadCount} handleLoad={handleLoad} />
+  )
+}
+
+
+function RowsDisp({obj,config,loadCount,handleLoad}) {
+
+  let rows = config.rows || 3;
   let objList = [
     <div className="py-10 text-secondary/30 whitespace-normal sm:whitespace-nowrap">
       <h1 className="">File upload pending...</h1>
       <p>Please visit <u><a href='http://'>http://google.dropbox.com/tomi</a></u> to see all the works</p>
     </div>
   ];
-  
+  let w = config.width || defConf.width;
+
+
   if(obj) {
-    let config = obj.data.find((obj,i) => obj.name === 'config.json');
-    if(config)
-      console.log('-- ',config);
-
-    // fetch(`${path.pages}/${config.link}`)
-    //   .then((response) => response.json())
-    //   .then((json) => console.log(json));
-
     if(obj.data.length > 0)
       objList = [];
-    
-    let row = 3;
-    // for(let i=0;i<row;i++) // push empty array row times
-    //   objList.push([]);
-
-    let count = row;
+      
+    let count = rows;
     for(let file of obj.data) {
       let ext = file.name.split(".").pop();
       if(ext === 'json') continue;
 
-      if(objList.length < row)
+      if(objList.length < rows)
         objList.push([]);
       ext !== 'mp4' ?
-        objList[count%row].push(
-          <div className="card-sty1 " key={Math.random()*10}>
-            <img alt={file.name} src={path.pages+"/"+file.link} className="w-full h-full object-cover" />
+        objList[count%rows].push(
+          <div className="card-sty1 " key={file.link+""+count}>
+            <Image file={file} onLoad={handleLoad} />
           </div>
         )
       :
-        objList[count%row].push(function() {
-          const vid = createRef();
-
-          return <VidComp key={Math.random()*10} vid={vid} file={file} />
-        }())
+        objList[count%rows].push((
+          <VidComp key={count} onLoadedData={handleLoad} file={file} />
+        ))
       count+=1;
     }
-    
   }
 
-  return objList;
+  // const w = config.width ? 'max-w-['+config.width+'px]' : '';
+  return (
+    <div className={"w-full flex flex-wrap justify-center gap-4  " + (
+      config.nowrap ? '!overflow-x-auto !flex-nowrap !justify-start xlg:!justify-center snap-x snap-mandatory ' : ''
+    )}
+    >
+      {
+        objList.map((row,ind) => (
+          <div key={ind} className={"flex flex-col gap-4 snap-center "} style={{maxWidth: w,minWidth: w}}>
+            {row}
+          </div>
+        ))
+      }
+    </div>
+  );
 }
 
-export default listItems;
+
+export {ListItems as default};

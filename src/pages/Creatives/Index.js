@@ -2,14 +2,21 @@ import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { ReactComponent as Play } from "../../assets/icons/svg/play.svg";
 import getLinks from "../../controller/getLinks";
-import listItems from "./ListItems";
+import ListItems from "./ListItems";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 
 
+const defList = [
+  {name: ' ',data: [],link: ''},
+  {name: ' ',data: [],link: ''},
+  {name: ' ',data: [],link: ''},
+  {name: ' ',data: [],link: ''},
+]
 function Index() {
   const {page} = useParams();
-  const [list,setList] = useState([]);
+  const [list,setList] = useState(defList);
+  const [loading,setLoading] = useState(true);
 
   useEffect(() => {
     load(page);
@@ -20,8 +27,9 @@ function Index() {
 
     
     var res = await getLinks(filter);
-    // console.log(res.data)
+    console.log(res.data)
     setList(res.data);
+    setLoading(false);
     
   }
 
@@ -34,30 +42,26 @@ function Index() {
         </div>
 
         <div className="pt-10 w-full flex items-end justify-center ">
-          <div className="w-[75%] max-screen-w">
-            <h1 className="uppercase bolder !text-[44px] translate-y-[14px]">Creative Library</h1>
+          <div className="w-3/4 max-screen-w">
+            <h1 className="uppercase bolder !text-[44px] translate-y-[14px] ">Creative Library</h1>
           </div>
         </div>
       </div>
-      <div className="w-[75%] flex gap-6 py-6 px-3 p-4 sw text-[#aaa] overflow-x-auto">
+      <div className="w-3/4 flex gap-6 py-6 px-3 p-4 sw text-[#aaa] overflow-x-auto">
         {
           list.map((link,ind) => (
             <Link key={ind} to={`/creatives/${link.name}`}
-              className={'text-center scale-y-110 whitespace-nowrap '+((link.name === page) || (page==null?ind===0:false)?'text-white brdr-act ':'')}
+              className={' min-h-[20px] min-w-[100px] text-center scale-y-110 whitespace-nowrap '
+                +((link.name === page) || (page==null?ind===0:false)?'text-white brdr-act ':'')
+                +(loading ? ' skullLoad ':'')
+              }
             >{link.name}</Link>
           ))
         }
       </div>
-      <div className=" px-2 py-8 sm:p-8 w-[75%]">
-        <div className={"flex flex-wrap items-start justify-center gap-4 pb-4 "+(page === "UGC Contents" ? ' !justify-start xlg:!justify-center snap-x snap-mandatory overflow-x-auto !flex-nowrap ' : '')}>
-          {
-            listItems(list,page).map((row,ind) => (
-              <div key={ind} className={"snap-center  flex flex-wrap justify-center gap-4 flex-1 !min-w-[300px] max-w-[222px] "
-                + (page === 'Video Ads' ? ' !min-w-[222px]':'')}>
-                {row}
-              </div>
-            ))
-          }
+      <div className="px-2 py-8 sm:py-8 w-3/4 max-screen-w">
+        <div className={"flex flex-wrap items-start justify-center gap-4 pb-4 "}>
+          <ListItems list={list} />
         </div>
       </div>
       <div className="flex items-center pb-32 px-4">

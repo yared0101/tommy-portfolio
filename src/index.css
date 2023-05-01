@@ -130,7 +130,7 @@ code {
 
 @layer components {
   .card-sty1 {
-    @apply bg-white rounded-2xl w-full overflow-hidden inline-block self-center;
+    @apply rounded-2xl w-full overflow-hidden inline-block self-center border border-transparent;
   } 
   /* max-h-[408px] */
 }

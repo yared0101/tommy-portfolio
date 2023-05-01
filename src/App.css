@@ -113,8 +113,31 @@ h1.wave:nth-child(4) {
 
 
 
+/* Load Animation */
+
+@keyframes placeHolderShimmer {
+  0% {
+    background-position: -800px 0
+  }
+  100% {
+    background-position: 800px 0
+  }
+}
+
+.skullLoad {
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-name: placeHolderShimmer;
+  animation-timing-function: linear;
+  background-color: #f6f7f8;
+  background: linear-gradient(to right, #1b1b1b 8%, #272626 18%, #1b1b1b 33%);
+  background-size: 800px 104px;
+  position: relative;
+}
 
 
+/* Slide Animation */
 
 @keyframes slide {
   0% {
